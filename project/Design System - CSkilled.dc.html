@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAF9F6;color:#0F172A;font-family:'IBM Plex Sans Arabic',sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#062985;text-decoration:none;} a:hover{color:#2440DC;}
+::placeholder{color:#94A3B8;opacity:1;font-family:'IBM Plex Sans Arabic',sans-serif;}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;background-color:#FAF9F6;background-image:linear-gradient(to right,rgba(6,41,133,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(6,41,133,0.04) 1px,transparent 1px);background-size:24px 24px;color:#0F172A;padding:48px 24px 96px;">
+<div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:56px;">
+
+<div style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;padding:16px 0 0;">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div style="width:56px;height:56px;border-radius:6px;background:#062985;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:24px;box-shadow:0 1px 3px rgba(15,23,42,0.12);">CS</div>
+    <div style="display:flex;flex-direction:column;text-align:right;">
+      <span style="font-weight:700;font-size:28px;color:#062985;line-height:1.2;">CSkilled</span>
+      <span style="font-size:13px;color:#475569;font-family:'JetBrains Mono',monospace;">أكاديمية علوم الحاسوب</span>
+    </div>
+  </div>
+  <h1 style="font-weight:700;font-size:34px;margin:8px 0 0;color:#0F172A;">نظام التصميم — «المخطّط الهندسي»</h1>
+  <p style="max-width:640px;margin:0;color:#475569;font-size:15px;line-height:1.9;">الرموز والألوان والخطوط والمكوّنات، مستخرجةً من الصفحة الرئيسية المعتمدة لموقع CSkilled. هذا المستند هو المرجع الملزم لتصميم كل الصفحات القادمة: صفحات الدبلومات، المسارات، المجتمع، وصفحات السياسات.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+    <span style="border:1px solid rgba(6,41,133,0.25);color:#062985;background:#FFFFFF;border-radius:4px;padding:5px 14px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;">عربي بالكامل · RTL</span>
+    <span style="border:1px solid rgba(6,41,133,0.25);color:#062985;background:#FFFFFF;border-radius:4px;padding:5px 14px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;">فاتح ورقي · شبكة مخطّط</span>
+    <span style="border:1px solid rgba(6,41,133,0.25);color:#062985;background:#FFFFFF;border-radius:4px;padding:5px 14px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;">مؤسسي هندسي رصين</span>
+  </div>
+</div>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">١ · الألوان <span style="font-size:13px;color:#475569;font-weight:400;">نِسَب التباين محسوبة على الأبيض / على الورقي</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px;">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#FAF9F6;border-bottom:1px solid #E2E8F0;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">الأرضية الورقية</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#FAF9F6 · paper</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#FFFFFF;border-bottom:1px solid #E2E8F0;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">سطح أبيض</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#FFFFFF · surface</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#E2E8F0;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">الحدود</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#E2E8F0 · border 1px</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#0F172A;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">نص أساسي</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#0F172A · slate</div><div style="font-size:11px;color:#062985;font-family:'JetBrains Mono',monospace;">١٧٫٩ ✓</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#475569;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">نص ثانوي</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#475569 · muted</div><div style="font-size:11px;color:#062985;font-family:'JetBrains Mono',monospace;">٧٫٥ ✓</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#062985;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">الأزرق العميق</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#062985 · primary</div><div style="font-size:11px;color:#062985;font-family:'JetBrains Mono',monospace;">١٢٫٨ · الأبيض عليه ✓</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#041C5C;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">أزرق التمرير</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#041C5C · hover فقط</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#2440DC;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">الكوبالت</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#2440DC · secondary</div><div style="font-size:11px;color:#062985;font-family:'JetBrains Mono',monospace;">٧٫٣ ✓</div></div></div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;overflow:hidden;"><div style="height:56px;background:#EBEDFF;"></div><div style="padding:10px 12px;"><div style="font-size:13px;font-weight:600;">اللافندر</div><div style="font-size:11px;color:#475569;direction:ltr;text-align:right;font-family:'JetBrains Mono',monospace;">#EBEDFF · lavender</div><div style="font-size:11px;color:#475569;">خلفيات فقط — ليس نصًّا</div></div></div>
+    
+    
+    
+  </div>
+  <p style="margin:0;font-size:13px;color:#475569;line-height:1.9;">القاعدة: الأزرق العميق هو لون الفعل الأول (أزرار، روابط نشطة، أرقام)، والكوبالت للتمييز الثانوي والتوصية والتشويق. اللافندر خلفية الحالة النشطة ورقائق الأيقونات — <b style="color:#0F172A;">لا برتقالي في النظام إطلاقًا</b>.</p>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٢ · اللوحة الداكنة — نافذة الكود <span style="font-size:13px;color:#475569;font-weight:400;">الاستخدام الداكن الوحيد في الموقع</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start;">
+    <div style="border-radius:8px;overflow:hidden;border:1px solid #1E293B;background:#0A101D;color:#E2E8F0;box-shadow:0 20px 40px rgba(2,6,23,0.25);">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#060B14;border-bottom:1px solid rgba(30,41,59,0.8);">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:12px;height:12px;border-radius:999px;background:#FF5F56;"></span>
+          <span style="width:12px;height:12px;border-radius:999px;background:#FFBD2E;"></span>
+          <span style="width:12px;height:12px;border-radius:999px;background:#27C93F;"></span>
+        </div>
+        <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:#94A3B8;">example.py</span>
+      </div>
+      <div dir="ltr" style="padding:20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;text-align:left;">
+        <div><span style="color:#A5B4FC;">from</span> dataclasses <span style="color:#A5B4FC;">import</span> dataclass</div>
+        <div style="color:#64748B;"># keyword · comment · type · number</div>
+        <div><span style="color:#A5B4FC;">class</span> <span style="color:#7DD3FC;font-weight:600;">Course</span>:</div>
+        <div style="padding-left:16px;">weeks: <span style="color:#38BDF8;">int</span> = <span style="color:#FBBF24;">12</span></div>
+        <div style="padding-left:16px;"><span style="color:#A5B4FC;">def</span> <span style="color:#7DD3FC;">total</span>(self) -&gt; <span style="color:#38BDF8;">float</span>:</div>
+        <div style="padding-left:32px;"><span style="color:#A5B4FC;">return</span> self.weeks * <span style="color:#FBBF24;">1.05</span></div>
+      </div>
+      <div style="padding:10px 16px;background:#080E1A;border-top:1px solid rgba(30,41,59,0.8);display:flex;align-items:center;justify-content:space-between;font-size:12px;font-family:'JetBrains Mono',monospace;">
+        <span style="display:flex;align-items:center;gap:6px;color:#34D399;"><span style="font-family:'Material Symbols Outlined';font-size:16px;">verified</span>pytest: 18/18 passed</span>
+        <span style="color:#94A3B8;">PEP 8</span>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:10px;font-size:13px;">
+      <div style="font-size:12px;color:#475569;">رموز اللوحة الداكنة — تُستخدم كما هي في كل نوافذ الكود</div>
+      <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:6px;background:#0A101D;border:1px solid #E2E8F0;flex:none;"></span><span>أرضية المحرر <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#0A101D</b> · الإطار <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#060B14</b></span></div>
+      <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:6px;background:#A5B4FC;flex:none;"></span><span>كلمات مفتاحية <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#A5B4FC</b></span></div>
+      <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:6px;background:#38BDF8;flex:none;"></span><span>أنواع <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#38BDF8</b> · أسماء <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#7DD3FC</b></span></div>
+      <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:6px;background:#FBBF24;flex:none;"></span><span>أرقام <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#FBBF24</b> · تعليقات <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#64748B</b></span></div>
+      <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:6px;background:#34D399;flex:none;"></span><span>نجاح الاختبارات <b dir="ltr" style="font-family:'JetBrains Mono',monospace;font-weight:500;">#34D399</b></span></div>
+      <div style="font-size:12px;color:#475569;line-height:1.8;border-top:1px solid #E2E8F0;padding-top:10px;">الكود دائمًا <b style="color:#0F172A;">dir="ltr"</b> ومحاذى لليسار داخل الصفحة العربية · قطر النافذة ٨ · ظل عميق واحد.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٣ · الخطوط <span style="font-size:13px;color:#475569;font-weight:400;">خطّان فقط — لا ثالث لهما</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:12px;color:#475569;">IBM Plex Sans Arabic — كل نصوص الواجهة والعناوين</div>
+      <div style="font-weight:700;font-size:38px;line-height:1.25;">دبلومة بايثون الشاملة: <span style="color:#062985;">من التفكير المنطقي إلى المشاريع</span></div>
+      <div style="font-size:16px;line-height:1.8;color:#475569;">النص الجاري بوزن ٤٠٠ وارتفاع سطر ١٫٨. المصطلح التقني يُذكر بالعربية ثم بالإنجليزية بين قوسين (Object-Oriented Programming).</div>
+      <div style="border-top:1px solid #E2E8F0;padding-top:12px;font-size:12px;color:#475569;">JetBrains Mono — الأرقام والأسعار والشارات والتسميات العلوية والكود وكل بيانات الوصف</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:#062985;font-variant-numeric:tabular-nums;" dir="ltr"><bdi>4,500</bdi> ج.م · Python 3.12+</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2440DC;text-transform:uppercase;letter-spacing:0.05em;">التوجيه الأكاديمي الشفاف</div>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:0;">
+      <div style="font-size:12px;color:#475569;padding-bottom:12px;">السلّم المعتمد</div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E2E8F0;font-size:14px;"><span>H1 بطل الصفحة · ٧٠٠</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">42 / 1.25</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E2E8F0;font-size:14px;"><span>H2 عنوان قسم · ٧٠٠</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">30 / 1.3</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E2E8F0;font-size:14px;"><span>H3 عنوان بطاقة · ٧٠٠</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">18–20 / 1.4</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E2E8F0;font-size:14px;"><span>نص أساسي · ٤٠٠</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">16 / 1.8</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E2E8F0;font-size:14px;"><span>نص ثانوي</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">14 / 1.8</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E2E8F0;font-size:14px;"><span>تسمية علوية / شارة · مونو ٦٠٠–٧٠٠</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">12 / 1.6</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;font-size:14px;"><span>ميكرو (حواشي مالية) · مونو</span><span style="color:#475569;font-family:'JetBrains Mono',monospace;">11 / 1.6</span></div>
+      <div style="margin-top:14px;background:#FAF9F6;border:1px solid #E2E8F0;border-radius:6px;padding:12px 16px;font-size:13px;color:#475569;line-height:1.9;">الأرقام غربية <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">0123</b> داخل <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">&lt;bdi&gt;</b> دائمًا، مع <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">tabular-nums</b> في الجداول والأسعار والعدّادات.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٤ · السطوح والخامة</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;box-shadow:0 1px 2px rgba(15,23,42,0.05);">
+      <div style="font-size:14px;font-weight:600;">سطح أبيض · ظل xs</div>
+      <div style="font-size:12px;color:#475569;line-height:1.9;margin-top:6px;">البطاقات القياسية · حد ١px · قطر ٤–٦ · <span dir="ltr" style="font-family:'JetBrains Mono',monospace;">0 1px 2px 5%</span></div>
+    </div>
+    <div style="background:#FFFFFF;border:2px solid #2440DC;border-radius:6px;padding:22px;box-shadow:0 4px 12px rgba(15,23,42,0.10);">
+      <div style="font-size:14px;font-weight:600;">سطح مميّز · ظل md</div>
+      <div style="font-size:12px;color:#475569;line-height:1.9;margin-top:6px;">البطاقة الموصى بها فقط: حد ٢px كوبالت + رفع بسيط <span dir="ltr" style="font-family:'JetBrains Mono',monospace;">translateY(-8px)</span></div>
+    </div>
+    <div style="background:#FAF9F6;border:1px solid #E2E8F0;border-radius:6px;padding:22px;">
+      <div style="font-size:14px;font-weight:600;">سطح ورقي غائر</div>
+      <div style="font-size:12px;color:#475569;line-height:1.9;margin-top:6px;">بطاقة داخل سطح أبيض، وصناديق الأسعار، وخلفيات الملخّصات · بلا ظل</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+    <div style="border-radius:6px;border:1px solid #E2E8F0;overflow:hidden;">
+      <div style="height:150px;background-color:#FAF9F6;background-image:linear-gradient(to right,rgba(6,41,133,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(6,41,133,0.04) 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center;">
+        <span style="border:1px solid rgba(6,41,133,0.2);color:#062985;background:#FFFFFF;border-radius:4px;padding:6px 16px;font-size:13px;font-family:'JetBrains Mono',monospace;font-weight:600;">cs-grid-paper</span>
+      </div>
+      <div style="padding:12px 16px;background:#FFFFFF;font-size:12px;color:#475569;line-height:1.8;">شبكة المخطّط الهندسي: خطوط أزرق أساسي بشفافية ٤٪ كل <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">24px</b> — للأبطال والأقسام المميّزة بالتناوب مع الأبيض، <b style="color:#0F172A;">لا قسمان متجاوران بالخامة نفسها</b>.</div>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;font-size:14px;line-height:2;color:#475569;">
+      <div style="font-size:12px;color:#475569;margin-bottom:6px;">الأقطار والظلال</div>
+      أقطار: <b style="color:#0F172A;">٤ افتراضي (أزرار، شارات، بطاقات) · ٨ نوافذ الوسائط والكود · ٩٩٩ زر التشغيل الدائري فقط</b><br>
+      ظلال: <span dir="ltr" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#0F172A;">xs 0 1px 2px / sm 0 1px 3px / md 0 4px 12px</span> بلون <span dir="ltr" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#0F172A;">#0F172A</span> ٥–١٠٪<br>
+      لا زوايا دائرية كبيرة، لا تدرّجات لونية في السطوح — الخامة الوحيدة هي شبكة المخطّط.
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٥ · العلامة</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:18px;align-items:center;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;border-radius:4px;background:#062985;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;box-shadow:0 1px 2px rgba(15,23,42,0.1);">CS</div>
+        <div style="display:flex;flex-direction:column;">
+          <span style="font-weight:700;font-size:18px;color:#062985;line-height:1.3;">CSkilled</span>
+          <span style="font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace;">أكاديمية علوم الحاسوب</span>
+        </div>
+      </div>
+      <div style="font-size:12px;color:#475569;line-height:1.9;text-align:center;">القفل الكامل: مربّع أزرق قطره ٤ + مونوغرام <b dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">CS</b> بخط المونو ٧٠٠ + الاسم بالأزرق العميق + السطر الوصفي بالمونو الخافت.<br>عند التمرير يتحوّل المربّع إلى الكوبالت <b dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">#2440DC</b>.</div>
+      <div style="display:flex;align-items:center;gap:10px;border-top:1px solid #E2E8F0;padding-top:14px;">
+        <div style="width:32px;height:32px;border-radius:4px;background:#062985;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;">CS</div>
+        <span style="font-weight:700;font-size:16px;color:#062985;">CSkilled</span>
+        <span style="font-size:11px;color:#475569;">— نسخة التذييل والمساحات الضيقة (بلا سطر وصفي)</span>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:14px;justify-content:center;">
+      <div style="font-size:13px;color:#475569;">التسمية العلوية (Kicker) — بصمة الأقسام في كل الصفحات: مونو ١٢ بوزن ٧٠٠</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#062985;">الخارطة التفصيلية للتعلم</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2440DC;">التوجيه الأكاديمي الشفاف</div>
+      <div style="font-size:12px;color:#475569;line-height:1.9;border-top:1px solid #E2E8F0;padding-top:12px;">تعلو كل عنوان قسم مباشرة · أزرق أساسي افتراضيًا، والكوبالت للأقسام ذات الطابع التوجيهي/التسويقي · تليها H2 ثم فقرة ثانوية بعرض أقصى ~٦٤٠px.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٦ · المكوّنات وحالاتها</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;">
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:12px;color:#475569;">الأزرار — قطر ٤ · نص ١٤ بوزن ٦٠٠ · ضغط <span dir="ltr" style="font-family:'JetBrains Mono',monospace;">scale(0.98)</span></div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;background:#062985;color:#FFFFFF;border-radius:4px;padding:14px 24px;font-weight:600;font-size:14px;box-shadow:0 1px 2px rgba(15,23,42,0.1);cursor:pointer;" style-hover="background:#041C5C;">
+        <span>شاهد خطط التقسيط والدفع</span>
+        <span style="font-family:'Material Symbols Outlined';font-size:18px;">arrow_downward</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;background:#FFFFFF;color:#0F172A;border:1px solid #E2E8F0;border-radius:4px;padding:13px 20px;font-weight:600;font-size:14px;cursor:pointer;" style-hover="background:rgba(235,237,255,0.3);border-color:rgba(6,41,133,0.4);">
+        <span style="font-family:'Material Symbols Outlined';font-size:20px;color:#2440DC;">play_circle</span>
+        <span>جرّب محاضرة مجانية (45 دقيقة)</span>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#FFFFFF;color:#062985;border:1px solid #062985;border-radius:4px;height:44px;font-weight:600;font-size:13px;cursor:pointer;" style-hover="background:rgba(235,237,255,0.4);">إطار أزرق</div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;background:transparent;color:#475569;border:1px solid transparent;border-radius:4px;height:44px;font-weight:500;font-size:13px;cursor:pointer;" style-hover="color:#062985;border-color:#E2E8F0;">هادئ</div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#F1F5F9;color:#94A3B8;border-radius:4px;height:44px;font-weight:600;font-size:13px;">معطّل</div>
+      </div>
+      <div style="font-size:12px;color:#475569;line-height:1.8;">الأساسي أزرق دائمًا، والثانوي أبيض بحدّ — <b style="color:#0F172A;">لا ألوان أخرى في الأزرار</b>.</div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:12px;color:#475569;">الشارات — مونو ١٢ · قطر ٤ · حشو <span dir="ltr" style="font-family:'JetBrains Mono',monospace;">4px 10px</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(6,41,133,0.2);background:#FFFFFF;color:#062985;border-radius:4px;padding:4px 10px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;"><span style="font-family:'Material Symbols Outlined';font-size:15px;">terminal</span>مسار هندسة البرمجيات</span>
+        <span style="background:#EBEDFF;color:#062985;border-radius:4px;padding:4px 10px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:500;">Python 3.12+</span>
+        <span style="border:1px solid rgba(36,64,220,0.3);background:#FFFFFF;color:#2440DC;border-radius:4px;padding:4px 10px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;">منهجية DBPE المكثفة</span>
+        <span style="border:1px solid #E2E8F0;background:#FFFFFF;color:#475569;border-radius:4px;padding:4px 10px;font-size:12px;">المستوى: من الصفر</span>
+        <span style="display:inline-flex;align-items:center;gap:4px;background:#EBEDFF;border:1px solid rgba(6,41,133,0.2);color:#062985;border-radius:4px;padding:4px 10px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;"><span style="font-family:'Material Symbols Outlined';font-size:15px;">play_arrow</span>متاحة بدون تسجيل</span>
+      </div>
+      <div style="font-size:12px;color:#475569;">شارة رقم الوحدة — مربّع ٣٢ لافندر بمونو ٧٠٠:</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="width:32px;height:32px;border-radius:4px;background:#EBEDFF;color:#062985;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;">01</span>
+        <span style="width:32px;height:32px;border-radius:4px;background:#EBEDFF;color:#062985;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;">02</span>
+        <span style="width:32px;height:32px;border-radius:4px;background:#EFF6FF;border:1px solid rgba(36,64,220,0.3);color:#2440DC;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">07</span>
+        <span style="font-size:12px;color:#475569;">— الكوبالت لوحدة التخرج/المميّزة فقط</span>
+      </div>
+      <div style="font-size:12px;color:#475569;">وسم المرحلة داخل البطاقات المنهجية:</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#062985;background:#EBEDFF;padding:4px 10px;border-radius:4px;">01. Depth</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#2440DC;background:#EFF6FF;padding:4px 10px;border-radius:4px;">02. Breadth</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#0F172A;background:#E2E8F0;padding:4px 10px;border-radius:4px;">03. Practice</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#334155;background:#F1F5F9;padding:4px 10px;border-radius:4px;">04. Experience</span>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:12px;color:#475569;">شريط التنقّل — أبيض ٩٥٪ + ضباب · ارتفاع ٨٠ · النشط لافندر</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(255,255,255,0.95);border:1px solid #E2E8F0;border-radius:6px;padding:10px 14px;box-shadow:0 1px 3px rgba(15,23,42,0.04);">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:32px;height:32px;border-radius:4px;background:#062985;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;">CS</div>
+          <span style="font-weight:700;font-size:15px;color:#062985;">CSkilled</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:4px;font-size:12px;font-weight:500;">
+          <span style="padding:6px 10px;border-radius:4px;color:#062985;background:#EBEDFF;font-weight:600;">دبلومة بايثون</span>
+          <span style="padding:6px 10px;border-radius:4px;color:#475569;cursor:pointer;" style-hover="color:#062985;background:rgba(235,237,255,0.5);">المسارات</span>
+          <span style="padding:6px 10px;border-radius:4px;color:#475569;cursor:pointer;" style-hover="color:#062985;background:rgba(235,237,255,0.5);">المجتمع</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;background:#062985;color:#FFFFFF;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;" style-hover="background:#041C5C;">استكشف المسارات</div>
+      </div>
+      <div style="font-size:12px;color:#475569;">شريط المقاييس — أعمدة مفصولة بخيوط، رقم مونو ملوّن + تسمية خافتة:</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:4px;padding:14px 0;box-shadow:0 1px 2px rgba(15,23,42,0.05);">
+        <div style="display:flex;flex-direction:column;padding:0 14px;border-left:1px solid #E2E8F0;"><span style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:#062985;font-variant-numeric:tabular-nums;"><bdi>8</bdi> وحدات</span><span style="font-size:11px;color:#475569;margin-top:2px;">تأصيل متكامل</span></div>
+        <div style="display:flex;flex-direction:column;padding:0 14px;border-left:1px solid #E2E8F0;"><span style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:#2440DC;font-variant-numeric:tabular-nums;"><bdi>+120</bdi> تمرين</span><span style="font-size:11px;color:#475569;margin-top:2px;">تحديات متدرجة</span></div>
+        <div style="display:flex;flex-direction:column;padding:0 14px;"><span style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:#062985;font-variant-numeric:tabular-nums;"><bdi>5</bdi> مشاريع</span><span style="font-size:11px;color:#475569;margin-top:2px;">تطبيقات فعلية</span></div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:12px;color:#475569;">بطاقة المحتوى — رقاقة أيقونة ٤٠ + عنوان + قائمة + تذييل مونو</div>
+      <div style="background:#FAF9F6;border:1px solid #E2E8F0;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:0;" style-hover="border-color:rgba(6,41,133,0.4);">
+        <div style="width:40px;height:40px;border-radius:4px;background:#EBEDFF;color:#062985;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;">task_alt</span></div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:10px;">تناسبك تماماً إذا كنت:</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:#475569;">
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="font-family:'Material Symbols Outlined';font-size:18px;color:#062985;flex:none;margin-top:2px;">check</span><span>شخصاً يبدأ من الصفر ويبحث عن تأسيس صلب.</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span style="font-family:'Material Symbols Outlined';font-size:18px;color:#062985;flex:none;margin-top:2px;">check</span><span>مطوراً من لغة أخرى يسعى لقواعد هندسية رصينة.</span></div>
+        </div>
+        <div style="margin-top:18px;padding-top:12px;border-top:1px solid rgba(226,232,240,0.8);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:#062985;">الهدف: التفكير المستقل في صياغة الحلول.</div>
+      </div>
+      <div style="font-size:12px;color:#475569;line-height:1.8;">قوائم التحقق: <b dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">check</b> أزرق للملاءمة، رمادي للمتطلبات، <b dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">arrow_forward</b> كوبالت للخطوات القادمة · التمرير يلوّن الحد بالأزرق ٤٠٪.</div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:12px;color:#475569;">صف الأكورديون (المنهج) — مغلق ومفتوح</div>
+      <div style="border:1px solid #E2E8F0;border-radius:4px;overflow:hidden;background:#FFFFFF;box-shadow:0 1px 2px rgba(15,23,42,0.05);">
+        <div style="padding:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;" style-hover="background:#FAF9F6;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:32px;height:32px;border-radius:4px;background:#EBEDFF;color:#062985;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none;">01</span>
+            <div>
+              <div style="font-weight:700;font-size:14px;">أساسيات التفكير المنطقي وبناء البرامج</div>
+              <div style="font-size:11px;color:#475569;margin-top:2px;">المتغيرات، الجمل الشرطية، وحلقات التكرار</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#475569;">3 أسابيع • 18 مسألة</span>
+            <span style="font-family:'Material Symbols Outlined';font-size:20px;color:#475569;">expand_more</span>
+          </div>
+        </div>
+      </div>
+      <div style="border:1px solid #E2E8F0;border-radius:4px;overflow:hidden;background:#FFFFFF;box-shadow:0 1px 2px rgba(15,23,42,0.05);">
+        <div style="padding:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#FAF9F6;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:32px;height:32px;border-radius:4px;background:#EBEDFF;color:#062985;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none;">02</span>
+            <div style="font-weight:700;font-size:14px;">الدوال وتنظيم الكود</div>
+          </div>
+          <span style="font-family:'Material Symbols Outlined';font-size:20px;color:#475569;transform:rotate(180deg);">expand_more</span>
+        </div>
+        <div style="padding:0 16px 16px;">
+          <div style="background:#FAF9F6;border:1px solid rgba(226,232,240,0.6);border-radius:4px;padding:14px;font-size:12px;color:#475569;line-height:1.9;">المحتوى المفتوح داخل صندوق ورقي غائر · القوائم نقطية · الشيفرون يدور <b dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">180°</b> خلال <b dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">200ms</b> · يُفتح عنصر واحد فقط.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:12px;color:#475569;">بطاقات الأسعار — القياسية والموصى بها</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end;">
+        <div style="border:1px solid #E2E8F0;background:#FFFFFF;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;" style-hover="box-shadow:0 4px 12px rgba(15,23,42,0.10);">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#475569;text-transform:uppercase;">دفعة واحدة</span>
+          <div style="font-weight:700;font-size:15px;">السداد الكامل</div>
+          <div style="background:#FAF9F6;border:1px solid #E2E8F0;border-radius:4px;padding:10px;">
+            <div style="display:flex;align-items:baseline;gap:6px;"><span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:#062985;font-variant-numeric:tabular-nums;"><bdi>4,500</bdi> ج.م</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#475569;text-decoration:line-through;"><bdi>5,600</bdi></span></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;background:#FFFFFF;color:#062985;border:1px solid #062985;border-radius:4px;padding:9px;font-weight:600;font-size:12px;cursor:pointer;" style-hover="background:rgba(235,237,255,0.4);">اختر الخطة</div>
+        </div>
+        <div style="border:2px solid #2440DC;background:#FFFFFF;border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;position:relative;box-shadow:0 4px 12px rgba(15,23,42,0.10);">
+          <div style="position:absolute;top:-11px;right:14px;background:#2440DC;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;">الخطة المقترحة</div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#2440DC;font-weight:600;text-transform:uppercase;">تقسيط مريح</span>
+          <div style="font-weight:700;font-size:15px;">تقسيط 6 أشهر</div>
+          <div style="background:rgba(235,237,255,0.5);border:1px solid rgba(36,64,220,0.3);border-radius:4px;padding:10px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;color:#0F172A;font-variant-numeric:tabular-nums;"><bdi>2,600</bdi> ج.م</span>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#2440DC;font-weight:600;margin-top:2px;">ثم 520 ج.م / شهر</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;background:#062985;color:#FFFFFF;border-radius:4px;padding:9px;font-weight:600;font-size:12px;cursor:pointer;box-shadow:0 1px 2px rgba(15,23,42,0.1);" style-hover="background:#041C5C;">اختر الخطة المقترحة</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:#475569;line-height:1.8;">المميّزة: حد ٢px كوبالت + شارة عائمة + رفع <span dir="ltr" style="font-family:'JetBrains Mono',monospace;color:#0F172A;">-8px</span> · زرّها الوحيد المعبّأ بالأزرق · صندوق سعرها بمسحة لافندر · <b style="color:#0F172A;">الأسعار مونو دائمًا.</b></div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:12px;color:#475569;">المبدّل والحقول وأزرار الاختيار</div>
+      <div style="display:flex;align-self:flex-start;padding:4px;border-radius:4px;background:#FAF9F6;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(15,23,42,0.05);">
+        <span style="padding:8px 16px;border-radius:4px;font-size:12px;font-weight:700;background:#FFFFFF;color:#062985;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(15,23,42,0.05);cursor:pointer;">مصر (EGP)</span>
+        <span style="padding:8px 16px;border-radius:4px;font-size:12px;font-weight:600;color:#475569;cursor:pointer;" style-hover="color:#0F172A;">الخليج (USD)</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label style="font-size:13px;font-weight:500;">الاسم الكامل (لإصدار الشهادة)</label>
+        <input placeholder="مثال: أحمد عبد الله" style="width:100%;box-sizing:border-box;padding:9px 12px;border-radius:4px;border:1px solid #E2E8F0;font-size:13px;font-family:'IBM Plex Sans Arabic',sans-serif;outline:none;color:#0F172A;background:#FFFFFF;" style-focus="border-color:#062985;box-shadow:0 0 0 1px #062985;">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label style="font-size:13px;font-weight:500;">طريقة السداد المفضلة</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <span style="display:flex;align-items:center;justify-content:center;padding:8px;border-radius:4px;border:1px solid #062985;background:#EBEDFF;color:#062985;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;cursor:pointer;">إنستاباي</span>
+          <span style="display:flex;align-items:center;justify-content:center;padding:8px;border-radius:4px;border:1px solid #E2E8F0;color:#475569;font-family:'JetBrains Mono',monospace;font-size:12px;cursor:pointer;" style-hover="border-color:#062985;color:#062985;">فوري</span>
+          <span style="display:flex;align-items:center;justify-content:center;padding:8px;border-radius:4px;border:1px solid #E2E8F0;color:#475569;font-family:'JetBrains Mono',monospace;font-size:12px;cursor:pointer;" style-hover="border-color:#062985;color:#062985;">بطاقة بنكية</span>
+        </div>
+      </div>
+      <div style="font-size:12px;color:#475569;line-height:1.8;">المحدد: حد أزرق + خلفية لافندر · التركيز: حد أزرق + حلقة ١px · لا حلقات ملونة سميكة.</div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:12px;color:#475569;">بطاقة سؤال شائع + شريط معلومات مؤسسي</div>
+      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:4px;padding:16px;box-shadow:0 1px 2px rgba(15,23,42,0.05);">
+        <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-bottom:8px;">
+          <span style="font-family:'Material Symbols Outlined';font-size:20px;color:#062985;">help</span>
+          <span>ما هي سياسة الاسترجاع المالي والضمان؟</span>
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.9;">ضمان استرداد غير مشروط لمدة 14 يوماً من تاريخ التفعيل الأول، دون استقطاعات إدارية.</div>
+      </div>
+      <div style="background:#FAF9F6;border:1px solid #E2E8F0;border-radius:4px;padding:14px;display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'Material Symbols Outlined';font-size:20px;color:#062985;flex:none;">shield</span>
+        <span style="font-size:12px;color:#475569;font-weight:500;line-height:1.8;">مبدأ الأكاديمية: لا وعود وظيفية خيالية، بل تأهيل هندسي متين.</span>
+      </div>
+      <div style="align-self:flex-start;display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:#FAF9F6;border:1px solid #E2E8F0;border-radius:4px;padding:12px 14px;font-size:11px;color:#475569;font-family:'JetBrains Mono',monospace;">
+        <span style="font-weight:700;color:#0F172A;">قنوات السداد:</span>
+        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="font-family:'Material Symbols Outlined';font-size:16px;color:#062985;">account_balance_wallet</span>إنستاباي</span>
+        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="font-family:'Material Symbols Outlined';font-size:16px;color:#475569;">storefront</span>فوري</span>
+        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="font-family:'Material Symbols Outlined';font-size:16px;color:#2440DC;">credit_card</span>البطاقات</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٧ · الأيقونات <span style="font-size:13px;color:#475569;font-weight:400;">Material Symbols Outlined — لا مكتبة ثانية، لا إيموجي</span></h2>
+  <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+    <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center;color:#475569;">
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">terminal</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">terminal</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">task_alt</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">task_alt</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">psychology</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">psychology</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#2440DC;">compare_arrows</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">compare_arrows</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#2440DC;">code_blocks</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">code_blocks</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#2440DC;">trending_up</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">trending_up</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">verified</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">verified</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#2440DC;">play_circle</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">play_circle</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">help</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">help</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">shield</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">shield</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#475569;">expand_more</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">expand_more</span></span>
+      <span style="display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="font-family:'Material Symbols Outlined';font-size:24px;color:#062985;">login</span><span style="font-size:11px;font-family:'JetBrains Mono',monospace;">login</span></span>
+    </div>
+    <div style="font-size:12px;color:#475569;line-height:1.9;border-top:1px solid #E2E8F0;padding-top:12px;">المقاسات: ١٥–١٦ داخل الشارات · ١٨ في القوائم والأزرار · ٢٠–٢٢ عناوين البطاقات · ٢٤ رقائق الأيقونات. اللون يتبع دلالة السياق (أزرق أفعال، كوبالت تمييز وتوصية، رمادي محايد) — <b style="color:#0F172A;">لا أيقونات متعددة الألوان ولا إيموجي إطلاقًا</b>.</div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px;">
+  <h2 style="font-weight:700;font-size:26px;margin:0;">٨ · المقاسات والحركة</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;font-size:14px;line-height:2;color:#475569;">
+      <div style="font-size:12px;color:#475569;margin-bottom:6px;">الشبكة والإيقاع</div>
+      الحاوية <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">max-width:1280px</b> · هوامش جانبية ١٦–٣٢<br>
+      حشو الأقسام العمودي <b style="color:#0F172A;">٦٤–٨٠</b> · حشو البطاقات <b style="color:#0F172A;">٢٠–٢٨</b><br>
+      فجوة الشبكات <b style="color:#0F172A;">٢٠–٢٤</b> · فجوة القوائم ١٠–١٢<br>
+      كل قسم يُختم بحد سفلي <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">1px #E2E8F0</b>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;font-size:14px;line-height:2;color:#475569;">
+      <div style="font-size:12px;color:#475569;margin-bottom:6px;">الحركة</div>
+      انتقالات الألوان والحدود <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">150ms</b><br>
+      دوران الشيفرون <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">200ms</b> · الضغط <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">scale(0.98)</b><br>
+      التمرير على البطاقات: تلوين الحد أو ظل md — <b style="color:#0F172A;">أحدهما لا كلاهما</b><br>
+      لا حركات دخول متدرجة، لا نبض، لا انزلاقات استعراضية
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:22px;font-size:14px;line-height:2;color:#475569;">
+      <div style="font-size:12px;color:#475569;margin-bottom:6px;">الاتجاه واللغة</div>
+      الصفحة <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">dir="rtl"</b> · الكود والبريد <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">dir="ltr"</b><br>
+      الأرقام والرموز داخل <b dir="ltr" style="color:#0F172A;font-family:'JetBrains Mono',monospace;">&lt;bdi&gt;</b><br>
+      المصطلح التقني: عربي أولًا والإنجليزية بين قوسين<br>
+      أهداف اللمس ≥ <b style="color:#0F172A;">٤٤px</b> في كل العناصر التفاعلية
+    </div>
+  </div>
+</section>
+
+<section style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;">
+  <h2 style="font-weight:700;font-size:22px;margin:0;">٩ · الصوت والمبادئ</h2>
+  <div style="font-size:14px;color:#475569;line-height:2.1;">النبرة مؤسسية هندسية رصينة: «تأصيل»، «منهجية»، «شفافية مالية»، «بدون فوائد خفية» — لا مبالغات تسويقية ولا وعود وظيفية. الجُمل تخاطب المتعلم مباشرة بصيغة المفرد. البيانات الرقمية (مدد، أعداد المسائل، الأسعار) تُعرض دائمًا بالمونو لتأكيد الدقة. كل ادّعاء يُسنَد برقم أو شرط واضح (ضمان ١٤ يومًا، ٦–٨ ساعات أسبوعيًا).</div>
+  <div style="font-size:13px;color:#475569;line-height:2;border-top:1px solid #E2E8F0;padding-top:10px;">التطبيق على الصفحات القادمة: كل صفحة تبدأ ببطل على شبكة المخطّط مع شارات وصفية، وتتناوب أقسامها بين الأبيض والورقي/الشبكة، وتُختم بشريط المبدأ المؤسسي ثم التذييل. الصور الحقيقية تُستبدل بأُطر داكنة (نوافذ كود أو فيديو) لا برسومات مجرّدة.</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+</body>
+</html>
