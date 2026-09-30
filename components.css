@@ -1,0 +1,636 @@
+/*
+ * CSkilled design system — components.
+ * Requires tokens.css. Every page is dir="rtl"; spacing uses logical properties
+ * so components also mirror correctly inside dir="ltr" islands.
+ */
+
+/* ── Base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cs-paper);
+  color: var(--cs-text);
+  font-family: var(--cs-font-sans);
+  font-size: var(--cs-text-body);
+  line-height: var(--cs-leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--cs-primary); text-decoration: none; transition: color var(--cs-dur-color) var(--cs-ease); }
+a:hover { color: var(--cs-secondary); }
+
+::placeholder { color: var(--cs-text-subtle); opacity: 1; font-family: var(--cs-font-sans); }
+
+:where(a, button, summary, input, [tabindex]):focus-visible {
+  outline: 1px solid var(--cs-primary);
+  outline-offset: 2px;
+}
+
+/* Western digits in <bdi>, tabular in tables/prices/counters */
+.cs-num { font-family: var(--cs-font-mono); font-variant-numeric: tabular-nums; }
+.cs-mono { font-family: var(--cs-font-mono); }
+.cs-ltr { direction: ltr; unicode-bidi: isolate; }
+
+/* ── Icons (Material Symbols Outlined) ────────────────────── */
+.cs-icon {
+  font-family: var(--cs-font-icon);
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;            /* lists & buttons */
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  display: inline-block;
+  flex: none;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+.cs-icon--badge { font-size: 15px; }  /* 15–16 inside badges */
+.cs-icon--title { font-size: 20px; }  /* 20–22 card titles */
+.cs-icon--chip  { font-size: 24px; }  /* icon chips */
+.cs-icon--primary   { color: var(--cs-primary); }
+.cs-icon--secondary { color: var(--cs-secondary); }
+.cs-icon--muted     { color: var(--cs-text-muted); }
+
+/* ── Texture & layout ─────────────────────────────────────── */
+.cs-grid-paper {
+  background-color: var(--cs-paper);
+  background-image:
+    linear-gradient(to right, var(--cs-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--cs-grid-line) 1px, transparent 1px);
+  background-size: var(--cs-grid-size) var(--cs-grid-size);
+}
+
+.cs-container {
+  width: 100%;
+  max-width: var(--cs-container);
+  margin-inline: auto;
+  padding-inline: var(--cs-gutter);
+}
+
+/* Sections alternate white ↔ paper/grid; never two adjacent sections with the same texture. */
+.cs-section {
+  padding-block: var(--cs-section-y);
+  border-bottom: 1px solid var(--cs-border);
+  background: var(--cs-surface);
+}
+.cs-section--paper { background: var(--cs-paper); }
+.cs-section--grid {
+  background-color: var(--cs-paper);
+  background-image:
+    linear-gradient(to right, var(--cs-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--cs-grid-line) 1px, transparent 1px);
+  background-size: var(--cs-grid-size) var(--cs-grid-size);
+}
+
+.cs-grid {
+  display: grid;
+  gap: var(--cs-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--cs-grid-min, 300px)), 1fr));
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.cs-h1, .cs-h2, .cs-h3 { margin: 0; font-weight: var(--cs-weight-bold); color: var(--cs-text); }
+.cs-h1 { font-size: var(--cs-text-h1); line-height: var(--cs-leading-h1); }
+.cs-h2 { font-size: var(--cs-text-h2); line-height: var(--cs-leading-h2); }
+.cs-h3 { font-size: var(--cs-text-h3); line-height: var(--cs-leading-h3); }
+.cs-h3--sm { font-size: var(--cs-text-h3-sm); }
+.cs-accent { color: var(--cs-primary); }
+
+@media (max-width: 640px) {
+  .cs-h1 { font-size: 32px; }
+  .cs-h2 { font-size: 24px; }
+}
+
+.cs-body  { font-size: var(--cs-text-body); line-height: var(--cs-leading-body); color: var(--cs-text-muted); margin: 0; }
+.cs-small { font-size: var(--cs-text-small); line-height: var(--cs-leading-body); color: var(--cs-text-muted); margin: 0; }
+.cs-micro { font-family: var(--cs-font-mono); font-size: var(--cs-text-micro); line-height: var(--cs-leading-kicker); color: var(--cs-text-muted); }
+
+/* Kicker: mono 12/700 directly above every section H2 */
+.cs-kicker {
+  display: block;
+  font-family: var(--cs-font-mono);
+  font-size: var(--cs-text-kicker);
+  line-height: var(--cs-leading-kicker);
+  font-weight: var(--cs-weight-bold);
+  color: var(--cs-primary);
+}
+.cs-kicker--secondary { color: var(--cs-secondary); }  /* guidance / marketing sections */
+
+.cs-section-head { display: flex; flex-direction: column; gap: 8px; margin-bottom: 40px; }
+.cs-section-head > .cs-body { max-width: var(--cs-measure); }
+
+/* ── Logo lockup ──────────────────────────────────────────── */
+.cs-logo { display: inline-flex; align-items: center; gap: 12px; color: inherit; }
+.cs-logo__mark {
+  width: 40px; height: 40px; flex: none;
+  border-radius: var(--cs-radius);
+  background: var(--cs-primary);
+  color: #FFFFFF;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--cs-font-mono);
+  font-weight: var(--cs-weight-bold);
+  font-size: 18px;
+  box-shadow: var(--cs-shadow-btn);
+  transition: background-color var(--cs-dur-color) var(--cs-ease);
+}
+a.cs-logo:hover .cs-logo__mark { background: var(--cs-secondary); }
+.cs-logo__text { display: flex; flex-direction: column; }
+.cs-logo__name { font-weight: var(--cs-weight-bold); font-size: 18px; line-height: 1.3; color: var(--cs-primary); }
+.cs-logo__tagline { font-family: var(--cs-font-mono); font-size: 12px; line-height: 1.6; color: var(--cs-text-muted); }
+
+/* Compact: footer & narrow spaces — no tagline */
+.cs-logo--compact { gap: 10px; }
+.cs-logo--compact .cs-logo__mark { width: 32px; height: 32px; font-size: 14px; box-shadow: none; }
+.cs-logo--compact .cs-logo__name { font-size: 16px; }
+.cs-logo--compact .cs-logo__tagline { display: none; }
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.cs-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--cs-touch);
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--cs-radius);
+  font-family: var(--cs-font-sans);
+  font-size: 14px;
+  font-weight: var(--cs-weight-semibold);
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--cs-dur-color) var(--cs-ease),
+    border-color var(--cs-dur-color) var(--cs-ease),
+    color var(--cs-dur-color) var(--cs-ease);
+}
+.cs-btn:active:not(:disabled):not([aria-disabled="true"]) { transform: var(--cs-press); }
+.cs-btn .cs-icon { font-size: 18px; }
+.cs-btn--block { display: flex; width: 100%; }
+.cs-btn--sm { min-height: 36px; padding: 8px 14px; font-size: 12px; }
+
+/* Primary: always deep blue */
+.cs-btn--primary {
+  background: var(--cs-primary);
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border: 0;
+  box-shadow: var(--cs-shadow-btn);
+}
+.cs-btn--primary:hover { background: var(--cs-primary-hover); color: #FFFFFF; }
+.cs-btn--primary.cs-btn--sm { padding: 8px 14px; }
+
+/* Secondary: white with hairline */
+.cs-btn--secondary { background: var(--cs-surface); color: var(--cs-text); border-color: var(--cs-border); }
+.cs-btn--secondary:hover { background: var(--cs-lavender-a30); border-color: var(--cs-primary-a40); color: var(--cs-text); }
+.cs-btn--secondary .cs-icon { font-size: 20px; color: var(--cs-secondary); }
+
+/* Outline: blue frame */
+.cs-btn--outline { background: var(--cs-surface); color: var(--cs-primary); border-color: var(--cs-primary); }
+.cs-btn--outline:hover { background: var(--cs-lavender-a40); color: var(--cs-primary); }
+
+/* Quiet */
+.cs-btn--quiet { background: transparent; color: var(--cs-text-muted); font-weight: var(--cs-weight-medium); }
+.cs-btn--quiet:hover { color: var(--cs-primary); border-color: var(--cs-border); }
+
+.cs-btn:disabled, .cs-btn[aria-disabled="true"] {
+  background: var(--cs-neutral-100);
+  color: var(--cs-text-subtle);
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Round play button — the only pill radius */
+.cs-play {
+  width: 64px; height: 64px;
+  border-radius: var(--cs-radius-pill);
+  border: 0;
+  background: var(--cs-primary);
+  color: #FFFFFF;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--cs-shadow-md);
+  transition: background-color var(--cs-dur-color) var(--cs-ease);
+}
+.cs-play:hover { background: var(--cs-primary-hover); }
+.cs-play:active { transform: var(--cs-press); }
+.cs-play .cs-icon { font-size: 32px; }
+
+/* ── Badges ───────────────────────────────────────────────── */
+.cs-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--cs-radius);
+  font-family: var(--cs-font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: var(--cs-weight-semibold);
+}
+.cs-badge .cs-icon { font-size: 15px; }
+.cs-badge--outline   { background: var(--cs-surface); color: var(--cs-primary); border-color: var(--cs-primary-a20); }
+.cs-badge--soft      { background: var(--cs-lavender); color: var(--cs-primary); font-weight: var(--cs-weight-medium); }
+.cs-badge--secondary { background: var(--cs-surface); color: var(--cs-secondary); border-color: var(--cs-secondary-a30); }
+.cs-badge--neutral   { background: var(--cs-surface); color: var(--cs-text-muted); border-color: var(--cs-border); font-family: var(--cs-font-sans); font-weight: var(--cs-weight-regular); }
+.cs-badge--live      { background: var(--cs-lavender); color: var(--cs-primary); border-color: var(--cs-primary-a20); gap: 4px; }
+/* Hero meta pills (slightly larger) */
+.cs-badge--meta      { background: var(--cs-surface); color: var(--cs-primary); border-color: var(--cs-primary-a25); padding: 5px 14px; }
+
+/* Unit-number badge: 32px lavender square */
+.cs-unit {
+  width: 32px; height: 32px; flex: none;
+  border: 1px solid transparent;
+  border-radius: var(--cs-radius);
+  background: var(--cs-lavender);
+  color: var(--cs-primary);
+  font-family: var(--cs-font-mono);
+  font-weight: var(--cs-weight-bold);
+  font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+/* Cobalt only for the graduation / featured unit */
+.cs-unit--featured { background: var(--cs-cobalt-tint); border-color: var(--cs-secondary-a30); color: var(--cs-secondary); }
+
+/* Phase tags inside methodology cards */
+.cs-phase {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--cs-radius);
+  font-family: var(--cs-font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: var(--cs-weight-bold);
+}
+.cs-phase--depth      { color: var(--cs-primary);  background: var(--cs-lavender); }
+.cs-phase--breadth    { color: var(--cs-secondary); background: var(--cs-cobalt-tint); }
+.cs-phase--practice   { color: var(--cs-text);      background: var(--cs-border); }
+.cs-phase--experience { color: var(--cs-text-strong-muted); background: var(--cs-neutral-100); }
+
+/* ── Surfaces ─────────────────────────────────────────────── */
+.cs-card {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: var(--cs-card-pad);
+  box-shadow: var(--cs-shadow-xs);
+}
+/* Recommended card only: 2px cobalt + md shadow (+ lift inside pricing grid) */
+.cs-card--featured { border: 2px solid var(--cs-secondary); box-shadow: var(--cs-shadow-md); }
+/* Inset paper: card inside a white surface, price boxes, summaries — no shadow */
+.cs-card--inset { background: var(--cs-paper); box-shadow: none; }
+
+/* Card hover: border tint OR md shadow — never both */
+.cs-card--hover-border { transition: border-color var(--cs-dur-color) var(--cs-ease); }
+.cs-card--hover-border:hover { border-color: var(--cs-primary-a40); }
+.cs-card--hover-shadow { transition: box-shadow var(--cs-dur-color) var(--cs-ease); }
+.cs-card--hover-shadow:hover { box-shadow: var(--cs-shadow-md); }
+
+.cs-icon-chip {
+  width: 40px; height: 40px;
+  border-radius: var(--cs-radius);
+  background: var(--cs-lavender);
+  color: var(--cs-primary);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.cs-icon-chip .cs-icon { font-size: 24px; }
+
+/* Content card: icon chip + title + list + mono footer */
+.cs-content-card { display: flex; flex-direction: column; padding: var(--cs-card-pad-sm); }
+.cs-content-card__title { margin: 0 0 10px; font-weight: var(--cs-weight-bold); font-size: 17px; line-height: 1.4; }
+.cs-content-card__footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--cs-border-soft);
+  font-family: var(--cs-font-mono);
+  font-size: 12px;
+  font-weight: var(--cs-weight-medium);
+  color: var(--cs-primary);
+}
+
+/* Checklists: check (blue) = fit · muted = requirements · arrow_forward (cobalt) = next steps */
+.cs-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.8; color: var(--cs-text-muted); }
+.cs-checklist li { display: flex; align-items: flex-start; gap: 8px; }
+.cs-checklist .cs-icon { font-size: 18px; margin-top: 2px; color: var(--cs-primary); }
+.cs-checklist--requirements .cs-icon { color: var(--cs-text-muted); }
+.cs-checklist--next .cs-icon { color: var(--cs-secondary); }
+
+/* ── Navigation ───────────────────────────────────────────── */
+.cs-nav {
+  position: sticky; top: 0; z-index: 50;
+  height: var(--cs-nav-height);
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--cs-border);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+.cs-nav__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cs-nav__links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.cs-nav__link {
+  display: inline-flex; align-items: center;
+  min-height: var(--cs-touch);
+  padding: 8px 14px;
+  border-radius: var(--cs-radius);
+  font-size: 14px;
+  font-weight: var(--cs-weight-medium);
+  color: var(--cs-text-muted);
+  transition: color var(--cs-dur-color) var(--cs-ease), background-color var(--cs-dur-color) var(--cs-ease);
+}
+.cs-nav__link:hover { color: var(--cs-primary); background: var(--cs-lavender-a50); }
+.cs-nav__link[aria-current="page"], .cs-nav__link.is-active {
+  color: var(--cs-primary);
+  background: var(--cs-lavender);
+  font-weight: var(--cs-weight-semibold);
+}
+@media (max-width: 860px) { .cs-nav__links { display: none; } }
+
+/* ── Metric strip ─────────────────────────────────────────── */
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(var(--cs-metrics-cols, 3), 1fr);
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: 14px 0;
+  box-shadow: var(--cs-shadow-xs);
+}
+.cs-metric { display: flex; flex-direction: column; padding-inline: 14px; border-inline-end: 1px solid var(--cs-border); }
+.cs-metric:last-child { border-inline-end: 0; }
+.cs-metric__value {
+  font-family: var(--cs-font-mono);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: var(--cs-weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--cs-primary);
+}
+.cs-metric__value--secondary { color: var(--cs-secondary); }
+.cs-metric__label { font-size: 11px; line-height: 1.6; color: var(--cs-text-muted); margin-top: 2px; }
+
+/* ── Accordion (curriculum) ───────────────────────────────── */
+/* Use <details name="…"> so only one item is open at a time. */
+.cs-accordion { display: flex; flex-direction: column; gap: 12px; }
+.cs-accordion__item {
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  overflow: hidden;
+  background: var(--cs-surface);
+  box-shadow: var(--cs-shadow-xs);
+}
+.cs-accordion__summary {
+  list-style: none;
+  padding: 16px;
+  min-height: var(--cs-touch);
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  cursor: pointer;
+  transition: background-color var(--cs-dur-color) var(--cs-ease);
+}
+.cs-accordion__summary::-webkit-details-marker { display: none; }
+.cs-accordion__summary:hover, .cs-accordion__item[open] > .cs-accordion__summary { background: var(--cs-paper); }
+.cs-accordion__lead { display: flex; align-items: center; gap: 12px; }
+.cs-accordion__title { font-weight: var(--cs-weight-bold); font-size: 14px; line-height: 1.6; }
+.cs-accordion__desc { font-size: 11px; line-height: 1.6; color: var(--cs-text-muted); margin-top: 2px; }
+.cs-accordion__trail { display: flex; align-items: center; gap: 10px; flex: none; }
+.cs-accordion__meta { font-family: var(--cs-font-mono); font-size: 11px; color: var(--cs-text-muted); }
+.cs-accordion__chevron { font-size: 20px; color: var(--cs-text-muted); transition: transform var(--cs-dur-chevron) var(--cs-ease); }
+.cs-accordion__item[open] .cs-accordion__chevron { transform: rotate(180deg); }
+.cs-accordion__item[open] .cs-accordion__desc { display: none; }
+.cs-accordion__panel { padding: 0 16px 16px; }
+.cs-accordion__body {
+  background: var(--cs-paper);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: var(--cs-radius);
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--cs-text-muted);
+}
+.cs-accordion__body ul { margin: 0; padding-inline-start: 18px; }
+@media (max-width: 560px) { .cs-accordion__meta { display: none; } }
+
+/* ── Pricing ──────────────────────────────────────────────── */
+.cs-pricing {
+  display: grid;
+  gap: var(--cs-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  align-items: end;
+  padding-top: 8px;
+}
+.cs-price-card {
+  position: relative;
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: var(--cs-card-pad);
+  transition: box-shadow var(--cs-dur-color) var(--cs-ease);
+}
+.cs-price-card:hover { box-shadow: var(--cs-shadow-md); }
+.cs-price-card--recommended { border: 2px solid var(--cs-secondary); box-shadow: var(--cs-shadow-md); }
+.cs-pricing .cs-price-card--recommended { transform: var(--cs-lift); }
+@media (max-width: 640px) { .cs-pricing .cs-price-card--recommended { transform: none; margin-top: 12px; } }
+
+.cs-price-card__flag {
+  position: absolute; top: -11px; inset-inline-start: 14px;
+  background: var(--cs-secondary);
+  color: #FFFFFF;
+  font-family: var(--cs-font-mono);
+  font-size: 10px;
+  line-height: 1.6;
+  font-weight: var(--cs-weight-bold);
+  padding: 3px 8px;
+  border-radius: var(--cs-radius);
+}
+.cs-price-card__eyebrow { font-family: var(--cs-font-mono); font-size: 11px; color: var(--cs-text-muted); text-transform: uppercase; }
+.cs-price-card--recommended .cs-price-card__eyebrow { color: var(--cs-secondary); font-weight: var(--cs-weight-semibold); }
+.cs-price-card__title { margin: 0; font-weight: var(--cs-weight-bold); font-size: 15px; line-height: 1.6; }
+.cs-price-card__box { background: var(--cs-paper); border: 1px solid var(--cs-border); border-radius: var(--cs-radius); padding: 10px; }
+.cs-price-card--recommended .cs-price-card__box { background: var(--cs-lavender-a50); border-color: var(--cs-secondary-a30); }
+.cs-price-card .cs-btn { margin-top: 4px; }
+
+/* Prices are always mono */
+.cs-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.cs-price__amount { font-family: var(--cs-font-mono); font-size: 20px; line-height: 1.5; font-weight: var(--cs-weight-bold); color: var(--cs-primary); font-variant-numeric: tabular-nums; }
+.cs-price-card--recommended .cs-price__amount { color: var(--cs-text); }
+.cs-price__was { font-family: var(--cs-font-mono); font-size: 11px; color: var(--cs-text-muted); text-decoration: line-through; }
+.cs-price__note { font-family: var(--cs-font-mono); font-size: 10px; line-height: 1.6; color: var(--cs-secondary); font-weight: var(--cs-weight-semibold); margin-top: 2px; }
+.cs-price__fine { font-family: var(--cs-font-mono); font-size: 11px; line-height: 1.6; color: var(--cs-text-muted); }
+
+/* ── Segmented toggle ─────────────────────────────────────── */
+.cs-segmented {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: var(--cs-radius);
+  background: var(--cs-paper);
+  border: 1px solid var(--cs-border);
+  box-shadow: var(--cs-shadow-xs);
+}
+.cs-segmented__option {
+  padding: 8px 16px;
+  min-height: 36px;
+  border: 1px solid transparent;
+  border-radius: var(--cs-radius);
+  background: transparent;
+  font-family: var(--cs-font-sans);
+  font-size: 12px;
+  font-weight: var(--cs-weight-semibold);
+  color: var(--cs-text-muted);
+  cursor: pointer;
+  transition: color var(--cs-dur-color) var(--cs-ease);
+}
+.cs-segmented__option:hover { color: var(--cs-text); }
+.cs-segmented__option[aria-pressed="true"], .cs-segmented__option[aria-selected="true"] {
+  background: var(--cs-surface);
+  color: var(--cs-primary);
+  border-color: var(--cs-border);
+  box-shadow: var(--cs-shadow-xs);
+  font-weight: var(--cs-weight-bold);
+}
+
+/* ── Form fields ──────────────────────────────────────────── */
+.cs-field { display: flex; flex-direction: column; gap: 6px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.cs-label { font-size: 13px; font-weight: var(--cs-weight-medium); color: var(--cs-text); padding: 0; }
+.cs-input {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border-radius: var(--cs-radius);
+  border: 1px solid var(--cs-border);
+  background: var(--cs-surface);
+  color: var(--cs-text);
+  font-family: var(--cs-font-sans);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--cs-dur-color) var(--cs-ease), box-shadow var(--cs-dur-color) var(--cs-ease);
+}
+/* Focus: blue border + 1px ring — no thick colored rings */
+.cs-input:focus, .cs-input:focus-visible { border-color: var(--cs-primary); box-shadow: 0 0 0 1px var(--cs-primary); outline: none; }
+.cs-input[dir="ltr"] { text-align: left; }
+
+/* Choice chips (radio group). Selected: blue border + lavender fill */
+.cs-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; }
+.cs-choice { position: relative; display: block; }
+.cs-choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.cs-choice span {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 40px;
+  padding: 8px;
+  border-radius: var(--cs-radius);
+  border: 1px solid var(--cs-border);
+  color: var(--cs-text-muted);
+  font-family: var(--cs-font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color var(--cs-dur-color) var(--cs-ease), color var(--cs-dur-color) var(--cs-ease);
+}
+.cs-choice:hover span { border-color: var(--cs-primary); color: var(--cs-primary); }
+.cs-choice input:checked + span {
+  border-color: var(--cs-primary);
+  background: var(--cs-lavender);
+  color: var(--cs-primary);
+  font-weight: var(--cs-weight-semibold);
+}
+.cs-choice input:focus-visible + span { outline: 1px solid var(--cs-primary); outline-offset: 2px; }
+
+/* ── FAQ & institutional strips ───────────────────────────── */
+.cs-faq { background: var(--cs-surface); border: 1px solid var(--cs-border); border-radius: var(--cs-radius); padding: 16px; box-shadow: var(--cs-shadow-xs); }
+.cs-faq__q { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-weight: var(--cs-weight-bold); font-size: 14px; line-height: 1.6; }
+.cs-faq__q .cs-icon { font-size: 20px; color: var(--cs-primary); }
+.cs-faq__a { margin: 0; font-size: 13px; line-height: 1.9; color: var(--cs-text-muted); }
+
+/* Principle strip — every page ends with it before the footer */
+.cs-principle {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--cs-paper);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.8;
+  font-weight: var(--cs-weight-medium);
+  color: var(--cs-text-muted);
+}
+.cs-principle .cs-icon { font-size: 20px; color: var(--cs-primary); }
+
+/* Inline info strip (e.g. payment channels) */
+.cs-info-strip {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  background: var(--cs-paper);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: 12px 14px;
+  font-family: var(--cs-font-mono);
+  font-size: 11px;
+  color: var(--cs-text-muted);
+}
+.cs-info-strip__label { font-weight: var(--cs-weight-bold); color: var(--cs-text); }
+.cs-info-strip__item { display: inline-flex; align-items: center; gap: 4px; }
+.cs-info-strip__item .cs-icon { font-size: 16px; }
+
+/* ── Code window (the only dark surface) ──────────────────── */
+.cs-code {
+  border-radius: var(--cs-radius-media);
+  overflow: hidden;
+  border: 1px solid var(--cs-code-border);
+  background: var(--cs-code-bg);
+  color: var(--cs-code-text);
+  box-shadow: var(--cs-shadow-code);
+}
+.cs-code__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--cs-code-chrome);
+  border-bottom: 1px solid var(--cs-code-divider);
+}
+.cs-code__dots { display: flex; align-items: center; gap: 8px; }
+.cs-code__dots span { width: 12px; height: 12px; border-radius: var(--cs-radius-pill); background: var(--cs-code-dot-red); }
+.cs-code__dots span:nth-child(2) { background: var(--cs-code-dot-yellow); }
+.cs-code__dots span:nth-child(3) { background: var(--cs-code-dot-green); }
+.cs-code__file { font-family: var(--cs-font-mono); font-size: 12px; color: var(--cs-code-muted); }
+/* Code is always dir="ltr" and left-aligned inside the Arabic page */
+.cs-code__body {
+  direction: ltr;
+  text-align: left;
+  margin: 0;
+  padding: 20px;
+  font-family: var(--cs-font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-x: auto;
+  white-space: pre;
+  background: transparent;
+  color: inherit;
+}
+.cs-code__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--cs-code-footer);
+  border-top: 1px solid var(--cs-code-divider);
+  font-family: var(--cs-font-mono);
+  font-size: 12px;
+  color: var(--cs-code-muted);
+}
+.cs-code__status { display: flex; align-items: center; gap: 6px; color: var(--cs-code-success); }
+.cs-code__status .cs-icon { font-size: 16px; }
+
+.tok-kw { color: var(--cs-code-keyword); }
+.tok-type { color: var(--cs-code-type); }
+.tok-name { color: var(--cs-code-name); }
+.tok-def { color: var(--cs-code-name); font-weight: var(--cs-weight-semibold); }
+.tok-num { color: var(--cs-code-number); }
+.tok-comment { color: var(--cs-code-comment); }
+
+/* ── Footer ───────────────────────────────────────────────── */
+/* The preceding section's bottom hairline separates it — no border-top. */
+.cs-footer { background: var(--cs-surface); padding-block: 48px; }
+.cs-footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.cs-footer__meta { font-family: var(--cs-font-mono); font-size: 12px; color: var(--cs-text-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; }
+}

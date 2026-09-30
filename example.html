@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دبلومة بايثون الشاملة — CSkilled</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  /* Page-specific layout only */
+  .hero { display: grid; gap: 48px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: center; }
+  .hero__copy { display: flex; flex-direction: column; gap: 20px; }
+  .hero__badges, .hero__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero__actions { gap: 12px; }
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+</style>
+</head>
+<body>
+
+<nav class="cs-nav" aria-label="الرئيسية">
+  <div class="cs-container cs-nav__inner">
+    <a class="cs-logo" href="#">
+      <span class="cs-logo__mark" aria-hidden="true">CS</span>
+      <span class="cs-logo__text"><span class="cs-logo__name">CSkilled</span><span class="cs-logo__tagline">أكاديمية علوم الحاسوب</span></span>
+    </a>
+    <ul class="cs-nav__links">
+      <li><a class="cs-nav__link" href="#" aria-current="page">دبلومة بايثون</a></li>
+      <li><a class="cs-nav__link" href="#">المسارات</a></li>
+      <li><a class="cs-nav__link" href="#">المجتمع</a></li>
+      <li><a class="cs-nav__link" href="#">الأسئلة الشائعة</a></li>
+    </ul>
+    <a class="cs-btn cs-btn--primary" href="#">استكشف المسارات</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero: always on the blueprint grid -->
+  <section class="cs-section cs-section--grid">
+    <div class="cs-container hero">
+      <div class="hero__copy">
+        <div class="hero__badges">
+          <span class="cs-badge cs-badge--outline"><span class="cs-icon" aria-hidden="true">terminal</span>مسار هندسة البرمجيات</span>
+          <span class="cs-badge cs-badge--soft">Python 3.12+</span>
+          <span class="cs-badge cs-badge--neutral">المستوى: من الصفر</span>
+        </div>
+        <h1 class="cs-h1">دبلومة بايثون الشاملة: <span class="cs-accent">من التفكير المنطقي إلى المشاريع</span></h1>
+        <p class="cs-body">تأصيل هندسي متدرّج في البرمجة بلغة بايثون، بمنهجية واضحة وتقييم عملي في كل وحدة — دون وعود وظيفية، مع شفافية مالية كاملة.</p>
+        <div class="hero__actions">
+          <a class="cs-btn cs-btn--primary" href="#pricing"><span>شاهد خطط التقسيط والدفع</span><span class="cs-icon" aria-hidden="true">arrow_downward</span></a>
+          <a class="cs-btn cs-btn--secondary" href="#"><span class="cs-icon" aria-hidden="true">play_circle</span><span>جرّب محاضرة مجانية (<bdi>45</bdi> دقيقة)</span></a>
+        </div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><span class="cs-metric__value"><bdi>8</bdi> وحدات</span><span class="cs-metric__label">تأصيل متكامل</span></div>
+          <div class="cs-metric"><span class="cs-metric__value cs-metric__value--secondary"><bdi>+120</bdi> تمرين</span><span class="cs-metric__label">تحديات متدرجة</span></div>
+          <div class="cs-metric"><span class="cs-metric__value"><bdi>5</bdi> مشاريع</span><span class="cs-metric__label">تطبيقات فعلية</span></div>
+        </div>
+      </div>
+      <figure class="cs-code" style="margin:0">
+        <div class="cs-code__bar">
+          <div class="cs-code__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="cs-code__file">course.py</span>
+        </div>
+<pre class="cs-code__body"><code><span class="tok-kw">from</span> dataclasses <span class="tok-kw">import</span> dataclass
+
+<span class="tok-kw">@</span>dataclass
+<span class="tok-kw">class</span> <span class="tok-def">Course</span>:
+    weeks: <span class="tok-type">int</span> = <span class="tok-num">12</span>
+    <span class="tok-comment"># 6–8 hours / week</span>
+    <span class="tok-kw">def</span> <span class="tok-name">total</span>(self) -&gt; <span class="tok-type">float</span>:
+        <span class="tok-kw">return</span> self.weeks * <span class="tok-num">1.05</span></code></pre>
+        <div class="cs-code__foot">
+          <span class="cs-code__status"><span class="cs-icon" aria-hidden="true">verified</span>pytest: 18/18 passed</span>
+          <span>PEP 8</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- White -->
+  <section class="cs-section">
+    <div class="cs-container">
+      <div class="cs-section-head">
+        <span class="cs-kicker cs-kicker--secondary">التوجيه الأكاديمي الشفاف</span>
+        <h2 class="cs-h2">هل هذه الدبلومة مناسبة لك؟</h2>
+        <p class="cs-body">نحدّد بوضوح لمن صُمّمت الدبلومة، وما المطلوب منك، وما الخطوة التالية بعد التخرج.</p>
+      </div>
+      <div class="cs-grid">
+        <article class="cs-card cs-card--inset cs-card--hover-border cs-content-card">
+          <div class="cs-icon-chip"><span class="cs-icon" aria-hidden="true">task_alt</span></div>
+          <h3 class="cs-content-card__title">تناسبك تماماً إذا كنت:</h3>
+          <ul class="cs-checklist">
+            <li><span class="cs-icon" aria-hidden="true">check</span><span>شخصاً يبدأ من الصفر ويبحث عن تأسيس صلب.</span></li>
+            <li><span class="cs-icon" aria-hidden="true">check</span><span>مطوراً من لغة أخرى يسعى لقواعد هندسية رصينة.</span></li>
+          </ul>
+          <div class="cs-content-card__footer">الهدف: التفكير المستقل في صياغة الحلول.</div>
+        </article>
+        <article class="cs-card cs-card--inset cs-card--hover-border cs-content-card">
+          <div class="cs-icon-chip"><span class="cs-icon" aria-hidden="true">psychology</span></div>
+          <h3 class="cs-content-card__title">المتطلبات:</h3>
+          <ul class="cs-checklist cs-checklist--requirements">
+            <li><span class="cs-icon" aria-hidden="true">check</span><span>حاسوب شخصي واتصال مستقر بالإنترنت.</span></li>
+            <li><span class="cs-icon" aria-hidden="true">check</span><span>التزام بـ <bdi>6–8</bdi> ساعات أسبوعيًا.</span></li>
+          </ul>
+          <div class="cs-content-card__footer">لا يُشترط أي خبرة برمجية سابقة.</div>
+        </article>
+        <article class="cs-card cs-card--inset cs-card--hover-border cs-content-card">
+          <div class="cs-icon-chip"><span class="cs-icon" aria-hidden="true">trending_up</span></div>
+          <h3 class="cs-content-card__title">بعد التخرج:</h3>
+          <ul class="cs-checklist cs-checklist--next">
+            <li><span class="cs-icon" aria-hidden="true">arrow_forward</span><span>مسار هندسة البرمجيات المتقدّم.</span></li>
+            <li><span class="cs-icon" aria-hidden="true">arrow_forward</span><span>مسار تحليل البيانات (Data Analysis).</span></li>
+          </ul>
+          <div class="cs-content-card__footer">مسارات متّصلة دون إعادة التأسيس.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper -->
+  <section class="cs-section cs-section--paper">
+    <div class="cs-container">
+      <div class="cs-section-head">
+        <span class="cs-kicker">الخارطة التفصيلية للتعلم</span>
+        <h2 class="cs-h2">المنهج الدراسي</h2>
+        <p class="cs-body">ثماني وحدات متدرّجة، تنتهي كل منها بمجموعة مسائل مُقيّمة آليًا.</p>
+      </div>
+      <div class="cs-accordion">
+        <details class="cs-accordion__item" name="curriculum" open>
+          <summary class="cs-accordion__summary">
+            <span class="cs-accordion__lead"><span class="cs-unit">01</span><span><span class="cs-accordion__title">أساسيات التفكير المنطقي وبناء البرامج</span><span class="cs-accordion__desc" style="display:block">المتغيرات، الجمل الشرطية، وحلقات التكرار</span></span></span>
+            <span class="cs-accordion__trail"><span class="cs-accordion__meta"><bdi>3</bdi> أسابيع • <bdi>18</bdi> مسألة</span><span class="cs-icon cs-accordion__chevron" aria-hidden="true">expand_more</span></span>
+          </summary>
+          <div class="cs-accordion__panel"><div class="cs-accordion__body"><ul><li>المتغيرات وأنواع البيانات (Data Types)</li><li>الجمل الشرطية (Conditionals)</li><li>حلقات التكرار (Loops)</li></ul></div></div>
+        </details>
+        <details class="cs-accordion__item" name="curriculum">
+          <summary class="cs-accordion__summary">
+            <span class="cs-accordion__lead"><span class="cs-unit">02</span><span><span class="cs-accordion__title">الدوال وتنظيم الكود</span><span class="cs-accordion__desc" style="display:block">الدوال، النطاقات، والوحدات</span></span></span>
+            <span class="cs-accordion__trail"><span class="cs-accordion__meta"><bdi>2</bdi> أسابيع • <bdi>14</bdi> مسألة</span><span class="cs-icon cs-accordion__chevron" aria-hidden="true">expand_more</span></span>
+          </summary>
+          <div class="cs-accordion__panel"><div class="cs-accordion__body"><ul><li>تعريف الدوال (Functions)</li><li>النطاقات (Scope)</li><li>الوحدات والحزم (Modules)</li></ul></div></div>
+        </details>
+        <details class="cs-accordion__item" name="curriculum">
+          <summary class="cs-accordion__summary">
+            <span class="cs-accordion__lead"><span class="cs-unit cs-unit--featured">08</span><span><span class="cs-accordion__title">مشروع التخرج</span><span class="cs-accordion__desc" style="display:block">تطبيق متكامل بمراجعة كود فردية</span></span></span>
+            <span class="cs-accordion__trail"><span class="cs-accordion__meta"><bdi>2</bdi> أسابيع • مشروع</span><span class="cs-icon cs-accordion__chevron" aria-hidden="true">expand_more</span></span>
+          </summary>
+          <div class="cs-accordion__panel"><div class="cs-accordion__body"><ul><li>تصميم المشروع وتقسيمه</li><li>الاختبارات الآلية (pytest)</li><li>مراجعة الكود والتسليم</li></ul></div></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- White -->
+  <section class="cs-section" id="pricing">
+    <div class="cs-container">
+      <div class="cs-section-head">
+        <span class="cs-kicker cs-kicker--secondary">شفافية مالية</span>
+        <h2 class="cs-h2">خطط الدفع — بدون فوائد خفية</h2>
+        <p class="cs-body">اختر طريقة السداد التي تناسبك. ضمان استرداد غير مشروط لمدة <bdi>14</bdi> يومًا.</p>
+        <div class="cs-segmented" role="group" aria-label="العملة" data-segmented style="align-self:flex-start;margin-top:8px">
+          <button class="cs-segmented__option" type="button" aria-pressed="true">مصر (EGP)</button>
+          <button class="cs-segmented__option" type="button" aria-pressed="false">الخليج (USD)</button>
+        </div>
+      </div>
+      <div class="cs-pricing">
+        <div class="cs-price-card">
+          <span class="cs-price-card__eyebrow">دفعة واحدة</span>
+          <h3 class="cs-price-card__title">السداد الكامل</h3>
+          <div class="cs-price-card__box"><div class="cs-price"><span class="cs-price__amount"><bdi>4,500</bdi> ج.م</span><span class="cs-price__was"><bdi>5,600</bdi></span></div></div>
+          <button class="cs-btn cs-btn--outline cs-btn--block" type="button">اختر الخطة</button>
+        </div>
+        <div class="cs-price-card cs-price-card--recommended">
+          <span class="cs-price-card__flag">الخطة المقترحة</span>
+          <span class="cs-price-card__eyebrow">تقسيط مريح</span>
+          <h3 class="cs-price-card__title">تقسيط <bdi>6</bdi> أشهر</h3>
+          <div class="cs-price-card__box"><span class="cs-price__amount"><bdi>2,600</bdi> ج.م</span><div class="cs-price__note">ثم <bdi>520</bdi> ج.م / شهر</div></div>
+          <button class="cs-btn cs-btn--primary cs-btn--block" type="button">اختر الخطة المقترحة</button>
+        </div>
+        <div class="cs-price-card">
+          <span class="cs-price-card__eyebrow">تقسيط ممتد</span>
+          <h3 class="cs-price-card__title">تقسيط <bdi>12</bdi> شهرًا</h3>
+          <div class="cs-price-card__box"><span class="cs-price__amount"><bdi>1,400</bdi> ج.م</span><div class="cs-price__fine">ثم <bdi>320</bdi> ج.م / شهر</div></div>
+          <button class="cs-btn cs-btn--outline cs-btn--block" type="button">اختر الخطة</button>
+        </div>
+      </div>
+      <div class="cs-info-strip" style="margin-top:32px">
+        <span class="cs-info-strip__label">قنوات السداد:</span>
+        <span class="cs-info-strip__item"><span class="cs-icon cs-icon--primary" aria-hidden="true">account_balance_wallet</span>إنستاباي</span>
+        <span class="cs-info-strip__item"><span class="cs-icon cs-icon--muted" aria-hidden="true">storefront</span>فوري</span>
+        <span class="cs-info-strip__item"><span class="cs-icon cs-icon--secondary" aria-hidden="true">credit_card</span>البطاقات</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="cs-section cs-section--grid">
+    <div class="cs-container">
+      <div class="cs-section-head">
+        <span class="cs-kicker">الأسئلة الشائعة</span>
+        <h2 class="cs-h2">قبل أن تبدأ</h2>
+      </div>
+      <div class="cs-grid" style="--cs-grid-min:340px">
+        <div class="cs-faq">
+          <h3 class="cs-faq__q"><span class="cs-icon" aria-hidden="true">help</span><span>ما هي سياسة الاسترجاع المالي والضمان؟</span></h3>
+          <p class="cs-faq__a">ضمان استرداد غير مشروط لمدة <bdi>14</bdi> يوماً من تاريخ التفعيل الأول، دون استقطاعات إدارية.</p>
+        </div>
+        <div class="cs-faq">
+          <h3 class="cs-faq__q"><span class="cs-icon" aria-hidden="true">help</span><span>كم ساعة أحتاج أسبوعيًا؟</span></h3>
+          <p class="cs-faq__a">بين <bdi>6</bdi> و<bdi>8</bdi> ساعات أسبوعيًا تشمل المحاضرات وحل المسائل.</p>
+        </div>
+      </div>
+      <form class="cs-card stack" style="margin-top:32px;max-width:520px" onsubmit="return false">
+        <div class="cs-field">
+          <label class="cs-label" for="name">الاسم الكامل (لإصدار الشهادة)</label>
+          <input class="cs-input" id="name" placeholder="مثال: أحمد عبد الله">
+        </div>
+        <div class="cs-field">
+          <label class="cs-label" for="email">البريد الإلكتروني</label>
+          <input class="cs-input" id="email" type="email" dir="ltr" placeholder="name@example.com">
+        </div>
+        <fieldset class="cs-field">
+          <legend class="cs-label" style="margin-bottom:6px">طريقة السداد المفضلة</legend>
+          <div class="cs-choices">
+            <label class="cs-choice"><input type="radio" name="pay" value="instapay" checked><span>إنستاباي</span></label>
+            <label class="cs-choice"><input type="radio" name="pay" value="fawry"><span>فوري</span></label>
+            <label class="cs-choice"><input type="radio" name="pay" value="card"><span>بطاقة بنكية</span></label>
+          </div>
+        </fieldset>
+        <button class="cs-btn cs-btn--primary" type="submit">تأكيد التسجيل</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Every page closes with the principle strip, then the footer -->
+  <section class="cs-section" style="--cs-section-y:40px">
+    <div class="cs-container">
+      <div class="cs-principle"><span class="cs-icon" aria-hidden="true">shield</span><span>مبدأ الأكاديمية: لا وعود وظيفية خيالية، بل تأهيل هندسي متين.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="cs-footer">
+  <div class="cs-container cs-footer__inner">
+    <a class="cs-logo cs-logo--compact" href="#"><span class="cs-logo__mark" aria-hidden="true">CS</span><span class="cs-logo__name">CSkilled</span></a>
+    <span class="cs-footer__meta">© <bdi>2026</bdi> CSkilled</span>
+  </div>
+</footer>
+
+<script src="cs.js"></script>
+</body>
+</html>

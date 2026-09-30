@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSkilled — نظام التصميم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  /* Reference-page chrome only — not part of the kit. */
+  .doc { min-height: 100vh; padding: 48px 24px 96px; }
+  .doc__wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+  .doc__intro { display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center; padding-top: 16px; }
+  .doc__intro .cs-logo { gap: 14px; }
+  .doc__intro .cs-logo__mark { width: 56px; height: 56px; border-radius: 6px; font-size: 24px; box-shadow: 0 1px 3px rgba(15,23,42,0.12); }
+  .doc__intro .cs-logo__text { text-align: right; }
+  .doc__intro .cs-logo__name { font-size: 28px; line-height: 1.2; }
+  .doc__intro .cs-logo__tagline { font-size: 13px; }
+  .doc__title { font-weight: 700; font-size: 34px; margin: 8px 0 0; line-height: 1.4; }
+  .doc__lede { max-width: 640px; margin: 0; color: var(--cs-text-muted); font-size: 15px; line-height: 1.9; }
+  .doc__pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .doc__section { display: flex; flex-direction: column; gap: 16px; }
+  .doc__h2 { font-weight: 700; font-size: 26px; margin: 0; line-height: 1.4; }
+  .doc__h2 small { font-size: 13px; color: var(--cs-text-muted); font-weight: 400; }
+  .doc__note { margin: 0; font-size: 13px; color: var(--cs-text-muted); line-height: 1.9; }
+  .doc__caption { font-size: 12px; color: var(--cs-text-muted); line-height: 1.8; }
+  .doc__caption b, .doc__note b, .doc__panel b { color: var(--cs-text); }
+  .doc__panel { background: var(--cs-surface); border: 1px solid var(--cs-border); border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .doc__panel--prose { font-size: 14px; line-height: 2; color: var(--cs-text-muted); display: block; }
+  .doc__code { font-family: var(--cs-font-mono); font-weight: 500; direction: ltr; unicode-bidi: isolate; }
+  .doc__grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min, 300px)), 1fr)); align-items: start; }
+  .doc__rule { border-top: 1px solid var(--cs-border); padding-top: 12px; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 12px; }
+  .swatch { background: #FFF; border: 1px solid var(--cs-border); border-radius: 6px; overflow: hidden; }
+  .swatch__chip { height: 56px; }
+  .swatch__chip--edge { border-bottom: 1px solid var(--cs-border); }
+  .swatch__meta { padding: 10px 12px; }
+  .swatch__name { font-size: 13px; font-weight: 600; }
+  .swatch__hex { font-size: 11px; color: var(--cs-text-muted); direction: ltr; text-align: right; font-family: var(--cs-font-mono); }
+  .swatch__ratio { font-size: 11px; color: var(--cs-primary); font-family: var(--cs-font-mono); }
+  .swatch__warn { font-size: 11px; color: var(--cs-text-muted); }
+
+  .tokrow { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .tokrow i { width: 26px; height: 26px; border-radius: 6px; flex: none; }
+
+  .scale-row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--cs-border); font-size: 14px; }
+  .scale-row:last-of-type { border-bottom: 0; }
+  .scale-row span:last-child { color: var(--cs-text-muted); font-family: var(--cs-font-mono); }
+
+  .icons { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; color: var(--cs-text-muted); }
+  .icons figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .icons figcaption { font-size: 11px; font-family: var(--cs-font-mono); }
+  .icons .cs-icon { font-size: 24px; }
+
+  .demo-nav { position: static; height: auto; border: 1px solid var(--cs-border); border-radius: 6px; padding: 10px 14px; }
+  .demo-nav .cs-nav__links { display: flex; }
+  .demo-nav .cs-nav__inner { flex-wrap: wrap; row-gap: 8px; }
+  .demo-nav .cs-nav__link { min-height: 0; padding: 6px 8px; font-size: 12px; white-space: nowrap; }
+  .demo-nav .cs-btn { padding: 8px 12px; white-space: nowrap; }
+  .demo-nav .cs-logo__name { font-size: 15px; }
+  .demo-nav .cs-logo__mark { font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="doc cs-grid-paper">
+<div class="doc__wrap">
+
+<header class="doc__intro">
+  <div class="cs-logo">
+    <div class="cs-logo__mark" aria-hidden="true">CS</div>
+    <div class="cs-logo__text">
+      <span class="cs-logo__name">CSkilled</span>
+      <span class="cs-logo__tagline">أكاديمية علوم الحاسوب</span>
+    </div>
+  </div>
+  <h1 class="doc__title">نظام التصميم — «المخطّط الهندسي»</h1>
+  <p class="doc__lede">الرموز والألوان والخطوط والمكوّنات، مستخرجةً من الصفحة الرئيسية المعتمدة لموقع CSkilled. هذا المستند هو المرجع الملزم لتصميم كل الصفحات القادمة: صفحات الدبلومات، المسارات، المجتمع، وصفحات السياسات.</p>
+  <div class="doc__pills">
+    <span class="cs-badge cs-badge--meta">عربي بالكامل · RTL</span>
+    <span class="cs-badge cs-badge--meta">فاتح ورقي · شبكة مخطّط</span>
+    <span class="cs-badge cs-badge--meta">مؤسسي هندسي رصين</span>
+  </div>
+  <a class="cs-btn cs-btn--secondary" href="example.html"><span class="cs-icon" aria-hidden="true">web</span><span>عرض صفحة مثال مبنية بالنظام</span></a>
+</header>
+
+<!-- 1 · Color -->
+<section class="doc__section">
+  <h2 class="doc__h2">١ · الألوان <small>نِسَب التباين محسوبة على الأبيض / على الورقي</small></h2>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch__chip swatch__chip--edge" style="background:var(--cs-paper)"></div><div class="swatch__meta"><div class="swatch__name">الأرضية الورقية</div><div class="swatch__hex">#FAF9F6 · paper</div></div></div>
+    <div class="swatch"><div class="swatch__chip swatch__chip--edge" style="background:var(--cs-surface)"></div><div class="swatch__meta"><div class="swatch__name">سطح أبيض</div><div class="swatch__hex">#FFFFFF · surface</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-border)"></div><div class="swatch__meta"><div class="swatch__name">الحدود</div><div class="swatch__hex">#E2E8F0 · border 1px</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-text)"></div><div class="swatch__meta"><div class="swatch__name">نص أساسي</div><div class="swatch__hex">#0F172A · slate</div><div class="swatch__ratio">١٧٫٩ ✓</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-text-muted)"></div><div class="swatch__meta"><div class="swatch__name">نص ثانوي</div><div class="swatch__hex">#475569 · muted</div><div class="swatch__ratio">٧٫٥ ✓</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-primary)"></div><div class="swatch__meta"><div class="swatch__name">الأزرق العميق</div><div class="swatch__hex">#062985 · primary</div><div class="swatch__ratio">١٢٫٨ · الأبيض عليه ✓</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-primary-hover)"></div><div class="swatch__meta"><div class="swatch__name">أزرق التمرير</div><div class="swatch__hex">#041C5C · hover فقط</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-secondary)"></div><div class="swatch__meta"><div class="swatch__name">الكوبالت</div><div class="swatch__hex">#2440DC · secondary</div><div class="swatch__ratio">٧٫٣ ✓</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:var(--cs-lavender)"></div><div class="swatch__meta"><div class="swatch__name">اللافندر</div><div class="swatch__hex">#EBEDFF · lavender</div><div class="swatch__warn">خلفيات فقط — ليس نصًّا</div></div></div>
+  </div>
+  <p class="doc__note">القاعدة: الأزرق العميق هو لون الفعل الأول (أزرار، روابط نشطة، أرقام)، والكوبالت للتمييز الثانوي والتوصية والتشويق. اللافندر خلفية الحالة النشطة ورقائق الأيقونات — <b>لا برتقالي في النظام إطلاقًا</b>.</p>
+</section>
+
+<!-- 2 · Dark palette -->
+<section class="doc__section">
+  <h2 class="doc__h2">٢ · اللوحة الداكنة — نافذة الكود <small>الاستخدام الداكن الوحيد في الموقع</small></h2>
+  <div class="doc__grid">
+    <figure class="cs-code" style="margin:0">
+      <div class="cs-code__bar">
+        <div class="cs-code__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="cs-code__file">example.py</span>
+      </div>
+<pre class="cs-code__body"><code><span class="tok-kw">from</span> dataclasses <span class="tok-kw">import</span> dataclass
+<span class="tok-comment"># keyword · comment · type · number</span>
+<span class="tok-kw">class</span> <span class="tok-def">Course</span>:
+    weeks: <span class="tok-type">int</span> = <span class="tok-num">12</span>
+    <span class="tok-kw">def</span> <span class="tok-name">total</span>(self) -&gt; <span class="tok-type">float</span>:
+        <span class="tok-kw">return</span> self.weeks * <span class="tok-num">1.05</span></code></pre>
+      <div class="cs-code__foot">
+        <span class="cs-code__status"><span class="cs-icon" aria-hidden="true">verified</span>pytest: 18/18 passed</span>
+        <span>PEP 8</span>
+      </div>
+    </figure>
+    <div class="doc__panel" style="gap:10px;font-size:13px">
+      <div class="doc__caption">رموز اللوحة الداكنة — تُستخدم كما هي في كل نوافذ الكود</div>
+      <div class="tokrow"><i style="background:var(--cs-code-bg);border:1px solid var(--cs-border)"></i><span>أرضية المحرر <b class="doc__code">#0A101D</b> · الإطار <b class="doc__code">#060B14</b></span></div>
+      <div class="tokrow"><i style="background:var(--cs-code-keyword)"></i><span>كلمات مفتاحية <b class="doc__code">#A5B4FC</b></span></div>
+      <div class="tokrow"><i style="background:var(--cs-code-type)"></i><span>أنواع <b class="doc__code">#38BDF8</b> · أسماء <b class="doc__code">#7DD3FC</b></span></div>
+      <div class="tokrow"><i style="background:var(--cs-code-number)"></i><span>أرقام <b class="doc__code">#FBBF24</b> · تعليقات <b class="doc__code">#64748B</b></span></div>
+      <div class="tokrow"><i style="background:var(--cs-code-success)"></i><span>نجاح الاختبارات <b class="doc__code">#34D399</b></span></div>
+      <div class="doc__caption doc__rule">الكود دائمًا <b>dir="ltr"</b> ومحاذى لليسار داخل الصفحة العربية · قطر النافذة ٨ · ظل عميق واحد.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Type -->
+<section class="doc__section">
+  <h2 class="doc__h2">٣ · الخطوط <small>خطّان فقط — لا ثالث لهما</small></h2>
+  <div class="doc__grid">
+    <div class="doc__panel" style="padding:24px;gap:14px">
+      <div class="doc__caption">IBM Plex Sans Arabic — كل نصوص الواجهة والعناوين</div>
+      <div style="font-weight:700;font-size:38px;line-height:1.25">دبلومة بايثون الشاملة: <span class="cs-accent">من التفكير المنطقي إلى المشاريع</span></div>
+      <p class="cs-body">النص الجاري بوزن ٤٠٠ وارتفاع سطر ١٫٨. المصطلح التقني يُذكر بالعربية ثم بالإنجليزية بين قوسين (Object-Oriented Programming).</p>
+      <div class="doc__caption doc__rule">JetBrains Mono — الأرقام والأسعار والشارات والتسميات العلوية والكود وكل بيانات الوصف</div>
+      <div class="cs-num" dir="ltr" style="font-size:20px;font-weight:700;color:var(--cs-primary);text-align:right"><bdi>4,500</bdi> ج.م · Python 3.12+</div>
+      <span class="cs-kicker cs-kicker--secondary" style="text-transform:uppercase;letter-spacing:0.05em">التوجيه الأكاديمي الشفاف</span>
+    </div>
+    <div class="doc__panel" style="padding:24px;gap:0">
+      <div class="doc__caption" style="padding-bottom:12px">السلّم المعتمد</div>
+      <div class="scale-row"><span>H1 بطل الصفحة · ٧٠٠</span><span>42 / 1.25</span></div>
+      <div class="scale-row"><span>H2 عنوان قسم · ٧٠٠</span><span>30 / 1.3</span></div>
+      <div class="scale-row"><span>H3 عنوان بطاقة · ٧٠٠</span><span>18–20 / 1.4</span></div>
+      <div class="scale-row"><span>نص أساسي · ٤٠٠</span><span>16 / 1.8</span></div>
+      <div class="scale-row"><span>نص ثانوي</span><span>14 / 1.8</span></div>
+      <div class="scale-row"><span>تسمية علوية / شارة · مونو ٦٠٠–٧٠٠</span><span>12 / 1.6</span></div>
+      <div class="scale-row"><span>ميكرو (حواشي مالية) · مونو</span><span>11 / 1.6</span></div>
+      <div class="cs-card cs-card--inset" style="margin-top:14px;padding:12px 16px;font-size:13px;color:var(--cs-text-muted);line-height:1.9;border-radius:6px">الأرقام غربية <b class="doc__code" style="color:var(--cs-text)">0123</b> داخل <b class="doc__code" style="color:var(--cs-text)">&lt;bdi&gt;</b> دائمًا، مع <b class="doc__code" style="color:var(--cs-text)">tabular-nums</b> في الجداول والأسعار والعدّادات.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Surfaces -->
+<section class="doc__section">
+  <h2 class="doc__h2">٤ · السطوح والخامة</h2>
+  <div class="doc__grid" style="--min:240px">
+    <div class="cs-card" style="border-radius:6px;padding:22px">
+      <div style="font-size:14px;font-weight:600">سطح أبيض · ظل xs</div>
+      <div class="doc__caption" style="margin-top:6px;line-height:1.9">البطاقات القياسية · حد ١px · قطر ٤–٦ · <span class="doc__code">0 1px 2px 5%</span></div>
+    </div>
+    <div class="cs-card cs-card--featured" style="border-radius:6px;padding:22px">
+      <div style="font-size:14px;font-weight:600">سطح مميّز · ظل md</div>
+      <div class="doc__caption" style="margin-top:6px;line-height:1.9">البطاقة الموصى بها فقط: حد ٢px كوبالت + رفع بسيط <span class="doc__code">translateY(-8px)</span></div>
+    </div>
+    <div class="cs-card cs-card--inset" style="border-radius:6px;padding:22px">
+      <div style="font-size:14px;font-weight:600">سطح ورقي غائر</div>
+      <div class="doc__caption" style="margin-top:6px;line-height:1.9">بطاقة داخل سطح أبيض، وصناديق الأسعار، وخلفيات الملخّصات · بلا ظل</div>
+    </div>
+  </div>
+  <div class="doc__grid">
+    <div style="border-radius:6px;border:1px solid var(--cs-border);overflow:hidden">
+      <div class="cs-grid-paper" style="height:150px;display:flex;align-items:center;justify-content:center">
+        <span class="cs-badge cs-badge--meta" style="border-color:var(--cs-primary-a20);padding:6px 16px;font-size:13px">cs-grid-paper</span>
+      </div>
+      <div class="doc__caption" style="padding:12px 16px;background:#FFF">شبكة المخطّط الهندسي: خطوط أزرق أساسي بشفافية ٤٪ كل <b class="doc__code">24px</b> — للأبطال والأقسام المميّزة بالتناوب مع الأبيض، <b>لا قسمان متجاوران بالخامة نفسها</b>.</div>
+    </div>
+    <div class="doc__panel doc__panel--prose">
+      <div class="doc__caption" style="margin-bottom:6px">الأقطار والظلال</div>
+      أقطار: <b>٤ افتراضي (أزرار، شارات، بطاقات) · ٨ نوافذ الوسائط والكود · ٩٩٩ زر التشغيل الدائري فقط</b><br>
+      ظلال: <span class="doc__code" style="font-size:12px;color:var(--cs-text)">xs 0 1px 2px / sm 0 1px 3px / md 0 4px 12px</span> بلون <span class="doc__code" style="font-size:12px;color:var(--cs-text)">#0F172A</span> ٥–١٠٪<br>
+      لا زوايا دائرية كبيرة، لا تدرّجات لونية في السطوح — الخامة الوحيدة هي شبكة المخطّط.
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Brand -->
+<section class="doc__section">
+  <h2 class="doc__h2">٥ · العلامة</h2>
+  <div class="doc__grid">
+    <div class="doc__panel" style="padding:28px;gap:18px;align-items:center">
+      <a class="cs-logo" href="#">
+        <span class="cs-logo__mark" aria-hidden="true">CS</span>
+        <span class="cs-logo__text">
+          <span class="cs-logo__name">CSkilled</span>
+          <span class="cs-logo__tagline">أكاديمية علوم الحاسوب</span>
+        </span>
+      </a>
+      <div class="doc__caption" style="text-align:center;line-height:1.9">القفل الكامل: مربّع أزرق قطره ٤ + مونوغرام <b class="doc__code">CS</b> بخط المونو ٧٠٠ + الاسم بالأزرق العميق + السطر الوصفي بالمونو الخافت.<br>عند التمرير يتحوّل المربّع إلى الكوبالت <b class="doc__code">#2440DC</b>.</div>
+      <div class="doc__rule" style="display:flex;align-items:center;gap:10px;padding-top:14px">
+        <span class="cs-logo cs-logo--compact"><span class="cs-logo__mark" aria-hidden="true">CS</span><span class="cs-logo__name">CSkilled</span></span>
+        <span style="font-size:11px;color:var(--cs-text-muted)">— نسخة التذييل والمساحات الضيقة (بلا سطر وصفي)</span>
+      </div>
+    </div>
+    <div class="doc__panel" style="padding:28px;gap:14px;justify-content:center">
+      <div style="font-size:13px;color:var(--cs-text-muted)">التسمية العلوية (Kicker) — بصمة الأقسام في كل الصفحات: مونو ١٢ بوزن ٧٠٠</div>
+      <span class="cs-kicker">الخارطة التفصيلية للتعلم</span>
+      <span class="cs-kicker cs-kicker--secondary">التوجيه الأكاديمي الشفاف</span>
+      <div class="doc__caption doc__rule" style="line-height:1.9">تعلو كل عنوان قسم مباشرة · أزرق أساسي افتراضيًا، والكوبالت للأقسام ذات الطابع التوجيهي/التسويقي · تليها H2 ثم فقرة ثانوية بعرض أقصى ~٦٤٠px.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Components -->
+<section class="doc__section">
+  <h2 class="doc__h2">٦ · المكوّنات وحالاتها</h2>
+  <div class="doc__grid" style="--min:320px">
+
+    <div class="doc__panel">
+      <div class="doc__caption">الأزرار — قطر ٤ · نص ١٤ بوزن ٦٠٠ · ضغط <span class="doc__code">scale(0.98)</span></div>
+      <button class="cs-btn cs-btn--primary cs-btn--block" type="button"><span>شاهد خطط التقسيط والدفع</span><span class="cs-icon" aria-hidden="true">arrow_downward</span></button>
+      <button class="cs-btn cs-btn--secondary cs-btn--block" type="button"><span class="cs-icon" aria-hidden="true">play_circle</span><span>جرّب محاضرة مجانية (45 دقيقة)</span></button>
+      <div style="display:flex;gap:10px">
+        <button class="cs-btn cs-btn--outline" type="button" style="flex:1;font-size:13px">إطار أزرق</button>
+        <button class="cs-btn cs-btn--quiet" type="button" style="flex:1;font-size:13px">هادئ</button>
+        <button class="cs-btn" type="button" style="flex:1;font-size:13px" disabled>معطّل</button>
+      </div>
+      <div class="doc__caption">الأساسي أزرق دائمًا، والثانوي أبيض بحدّ — <b>لا ألوان أخرى في الأزرار</b>.</div>
+    </div>
+
+    <div class="doc__panel" style="gap:14px">
+      <div class="doc__caption">الشارات — مونو ١٢ · قطر ٤ · حشو <span class="doc__code">4px 10px</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <span class="cs-badge cs-badge--outline"><span class="cs-icon" aria-hidden="true">terminal</span>مسار هندسة البرمجيات</span>
+        <span class="cs-badge cs-badge--soft">Python 3.12+</span>
+        <span class="cs-badge cs-badge--secondary">منهجية DBPE المكثفة</span>
+        <span class="cs-badge cs-badge--neutral">المستوى: من الصفر</span>
+        <span class="cs-badge cs-badge--live"><span class="cs-icon" aria-hidden="true">play_arrow</span>متاحة بدون تسجيل</span>
+      </div>
+      <div class="doc__caption">شارة رقم الوحدة — مربّع ٣٢ لافندر بمونو ٧٠٠:</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="cs-unit">01</span>
+        <span class="cs-unit">02</span>
+        <span class="cs-unit cs-unit--featured">07</span>
+        <span class="doc__caption">— الكوبالت لوحدة التخرج/المميّزة فقط</span>
+      </div>
+      <div class="doc__caption">وسم المرحلة داخل البطاقات المنهجية:</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="cs-phase cs-phase--depth">01. Depth</span>
+        <span class="cs-phase cs-phase--breadth">02. Breadth</span>
+        <span class="cs-phase cs-phase--practice">03. Practice</span>
+        <span class="cs-phase cs-phase--experience">04. Experience</span>
+      </div>
+    </div>
+
+    <div class="doc__panel" style="gap:14px">
+      <div class="doc__caption">شريط التنقّل — أبيض ٩٥٪ + ضباب · ارتفاع ٨٠ · النشط لافندر</div>
+      <nav class="cs-nav demo-nav" aria-label="عرض توضيحي">
+        <div class="cs-nav__inner" style="gap:10px">
+          <a class="cs-logo cs-logo--compact" href="#" style="gap:8px"><span class="cs-logo__mark" aria-hidden="true">CS</span><span class="cs-logo__name">CSkilled</span></a>
+          <ul class="cs-nav__links">
+            <li><a class="cs-nav__link" href="#" aria-current="page">دبلومة بايثون</a></li>
+            <li><a class="cs-nav__link" href="#">المسارات</a></li>
+            <li><a class="cs-nav__link" href="#">المجتمع</a></li>
+          </ul>
+          <a class="cs-btn cs-btn--primary cs-btn--sm" href="#" style="min-height:0">استكشف المسارات</a>
+        </div>
+      </nav>
+      <div class="doc__caption">شريط المقاييس — أعمدة مفصولة بخيوط، رقم مونو ملوّن + تسمية خافتة:</div>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-metric__value"><bdi>8</bdi> وحدات</span><span class="cs-metric__label">تأصيل متكامل</span></div>
+        <div class="cs-metric"><span class="cs-metric__value cs-metric__value--secondary"><bdi>+120</bdi> تمرين</span><span class="cs-metric__label">تحديات متدرجة</span></div>
+        <div class="cs-metric"><span class="cs-metric__value"><bdi>5</bdi> مشاريع</span><span class="cs-metric__label">تطبيقات فعلية</span></div>
+      </div>
+    </div>
+
+    <div class="doc__panel">
+      <div class="doc__caption">بطاقة المحتوى — رقاقة أيقونة ٤٠ + عنوان + قائمة + تذييل مونو</div>
+      <article class="cs-card cs-card--inset cs-card--hover-border cs-content-card">
+        <div class="cs-icon-chip"><span class="cs-icon" aria-hidden="true">task_alt</span></div>
+        <h3 class="cs-content-card__title">تناسبك تماماً إذا كنت:</h3>
+        <ul class="cs-checklist">
+          <li><span class="cs-icon" aria-hidden="true">check</span><span>شخصاً يبدأ من الصفر ويبحث عن تأسيس صلب.</span></li>
+          <li><span class="cs-icon" aria-hidden="true">check</span><span>مطوراً من لغة أخرى يسعى لقواعد هندسية رصينة.</span></li>
+        </ul>
+        <div class="cs-content-card__footer">الهدف: التفكير المستقل في صياغة الحلول.</div>
+      </article>
+      <div class="doc__caption">قوائم التحقق: <b class="doc__code">check</b> أزرق للملاءمة، رمادي للمتطلبات، <b class="doc__code">arrow_forward</b> كوبالت للخطوات القادمة · التمرير يلوّن الحد بالأزرق ٤٠٪.</div>
+    </div>
+
+    <div class="doc__panel">
+      <div class="doc__caption">صف الأكورديون (المنهج) — مغلق ومفتوح</div>
+      <div class="cs-accordion">
+        <details class="cs-accordion__item" name="curriculum">
+          <summary class="cs-accordion__summary">
+            <span class="cs-accordion__lead">
+              <span class="cs-unit">01</span>
+              <span>
+                <span class="cs-accordion__title">أساسيات التفكير المنطقي وبناء البرامج</span>
+                <span class="cs-accordion__desc" style="display:block">المتغيرات، الجمل الشرطية، وحلقات التكرار</span>
+              </span>
+            </span>
+            <span class="cs-accordion__trail">
+              <span class="cs-accordion__meta"><bdi>3</bdi> أسابيع • <bdi>18</bdi> مسألة</span>
+              <span class="cs-icon cs-accordion__chevron" aria-hidden="true">expand_more</span>
+            </span>
+          </summary>
+          <div class="cs-accordion__panel"><div class="cs-accordion__body"><ul><li>المتغيرات وأنواع البيانات</li><li>الجمل الشرطية</li><li>حلقات التكرار</li></ul></div></div>
+        </details>
+        <details class="cs-accordion__item" name="curriculum" open>
+          <summary class="cs-accordion__summary">
+            <span class="cs-accordion__lead">
+              <span class="cs-unit">02</span>
+              <span class="cs-accordion__title">الدوال وتنظيم الكود</span>
+            </span>
+            <span class="cs-icon cs-accordion__chevron" aria-hidden="true">expand_more</span>
+          </summary>
+          <div class="cs-accordion__panel"><div class="cs-accordion__body">المحتوى المفتوح داخل صندوق ورقي غائر · القوائم نقطية · الشيفرون يدور <b class="doc__code" style="color:var(--cs-text)">180°</b> خلال <b class="doc__code" style="color:var(--cs-text)">200ms</b> · يُفتح عنصر واحد فقط.</div></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="doc__panel" style="gap:14px">
+      <div class="doc__caption">بطاقات الأسعار — القياسية والموصى بها</div>
+      <div class="cs-pricing" style="--cs-card-pad:16px;gap:12px;grid-template-columns:1fr 1fr;padding-top:0">
+        <div class="cs-price-card">
+          <span class="cs-price-card__eyebrow">دفعة واحدة</span>
+          <h3 class="cs-price-card__title">السداد الكامل</h3>
+          <div class="cs-price-card__box">
+            <div class="cs-price"><span class="cs-price__amount"><bdi>4,500</bdi> ج.م</span><span class="cs-price__was"><bdi>5,600</bdi></span></div>
+          </div>
+          <button class="cs-btn cs-btn--outline cs-btn--sm cs-btn--block" type="button">اختر الخطة</button>
+        </div>
+        <div class="cs-price-card cs-price-card--recommended" style="transform:none">
+          <span class="cs-price-card__flag">الخطة المقترحة</span>
+          <span class="cs-price-card__eyebrow">تقسيط مريح</span>
+          <h3 class="cs-price-card__title">تقسيط <bdi>6</bdi> أشهر</h3>
+          <div class="cs-price-card__box">
+            <span class="cs-price__amount"><bdi>2,600</bdi> ج.م</span>
+            <div class="cs-price__note">ثم <bdi>520</bdi> ج.م / شهر</div>
+          </div>
+          <button class="cs-btn cs-btn--primary cs-btn--sm cs-btn--block" type="button">اختر الخطة المقترحة</button>
+        </div>
+      </div>
+      <div class="doc__caption">المميّزة: حد ٢px كوبالت + شارة عائمة + رفع <span class="doc__code" style="color:var(--cs-text)">-8px</span> · زرّها الوحيد المعبّأ بالأزرق · صندوق سعرها بمسحة لافندر · <b>الأسعار مونو دائمًا.</b></div>
+    </div>
+
+    <div class="doc__panel" style="gap:14px">
+      <div class="doc__caption">المبدّل والحقول وأزرار الاختيار</div>
+      <div class="cs-segmented" role="group" aria-label="العملة" style="align-self:flex-start" data-segmented>
+        <button class="cs-segmented__option" type="button" aria-pressed="true">مصر (EGP)</button>
+        <button class="cs-segmented__option" type="button" aria-pressed="false">الخليج (USD)</button>
+      </div>
+      <div class="cs-field">
+        <label class="cs-label" for="full-name">الاسم الكامل (لإصدار الشهادة)</label>
+        <input class="cs-input" id="full-name" placeholder="مثال: أحمد عبد الله">
+      </div>
+      <fieldset class="cs-field">
+        <legend class="cs-label" style="margin-bottom:6px">طريقة السداد المفضلة</legend>
+        <div class="cs-choices" style="grid-template-columns:1fr 1fr 1fr">
+          <label class="cs-choice"><input type="radio" name="pay" value="instapay" checked><span>إنستاباي</span></label>
+          <label class="cs-choice"><input type="radio" name="pay" value="fawry"><span>فوري</span></label>
+          <label class="cs-choice"><input type="radio" name="pay" value="card"><span>بطاقة بنكية</span></label>
+        </div>
+      </fieldset>
+      <div class="doc__caption">المحدد: حد أزرق + خلفية لافندر · التركيز: حد أزرق + حلقة ١px · لا حلقات ملونة سميكة.</div>
+    </div>
+
+    <div class="doc__panel">
+      <div class="doc__caption">بطاقة سؤال شائع + شريط معلومات مؤسسي</div>
+      <div class="cs-faq">
+        <h3 class="cs-faq__q"><span class="cs-icon" aria-hidden="true">help</span><span>ما هي سياسة الاسترجاع المالي والضمان؟</span></h3>
+        <p class="cs-faq__a">ضمان استرداد غير مشروط لمدة <bdi>14</bdi> يوماً من تاريخ التفعيل الأول، دون استقطاعات إدارية.</p>
+      </div>
+      <div class="cs-principle"><span class="cs-icon" aria-hidden="true">shield</span><span>مبدأ الأكاديمية: لا وعود وظيفية خيالية، بل تأهيل هندسي متين.</span></div>
+      <div class="cs-info-strip" style="align-self:flex-start">
+        <span class="cs-info-strip__label">قنوات السداد:</span>
+        <span class="cs-info-strip__item"><span class="cs-icon cs-icon--primary" aria-hidden="true">account_balance_wallet</span>إنستاباي</span>
+        <span class="cs-info-strip__item"><span class="cs-icon cs-icon--muted" aria-hidden="true">storefront</span>فوري</span>
+        <span class="cs-info-strip__item"><span class="cs-icon cs-icon--secondary" aria-hidden="true">credit_card</span>البطاقات</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 7 · Icons -->
+<section class="doc__section">
+  <h2 class="doc__h2">٧ · الأيقونات <small>Material Symbols Outlined — لا مكتبة ثانية، لا إيموجي</small></h2>
+  <div class="doc__panel" style="gap:14px">
+    <div class="icons">
+      <figure><span class="cs-icon cs-icon--primary">terminal</span><figcaption>terminal</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--primary">task_alt</span><figcaption>task_alt</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--primary">psychology</span><figcaption>psychology</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--secondary">compare_arrows</span><figcaption>compare_arrows</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--secondary">code_blocks</span><figcaption>code_blocks</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--secondary">trending_up</span><figcaption>trending_up</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--primary">verified</span><figcaption>verified</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--secondary">play_circle</span><figcaption>play_circle</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--primary">help</span><figcaption>help</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--primary">shield</span><figcaption>shield</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--muted">expand_more</span><figcaption>expand_more</figcaption></figure>
+      <figure><span class="cs-icon cs-icon--primary">login</span><figcaption>login</figcaption></figure>
+    </div>
+    <div class="doc__caption doc__rule" style="line-height:1.9">المقاسات: ١٥–١٦ داخل الشارات · ١٨ في القوائم والأزرار · ٢٠–٢٢ عناوين البطاقات · ٢٤ رقائق الأيقونات. اللون يتبع دلالة السياق (أزرق أفعال، كوبالت تمييز وتوصية، رمادي محايد) — <b>لا أيقونات متعددة الألوان ولا إيموجي إطلاقًا</b>.</div>
+  </div>
+</section>
+
+<!-- 8 · Spacing & motion -->
+<section class="doc__section">
+  <h2 class="doc__h2">٨ · المقاسات والحركة</h2>
+  <div class="doc__grid">
+    <div class="doc__panel doc__panel--prose">
+      <div class="doc__caption" style="margin-bottom:6px">الشبكة والإيقاع</div>
+      الحاوية <b class="doc__code">max-width:1280px</b> · هوامش جانبية ١٦–٣٢<br>
+      حشو الأقسام العمودي <b>٦٤–٨٠</b> · حشو البطاقات <b>٢٠–٢٨</b><br>
+      فجوة الشبكات <b>٢٠–٢٤</b> · فجوة القوائم ١٠–١٢<br>
+      كل قسم يُختم بحد سفلي <b class="doc__code">1px #E2E8F0</b>
+    </div>
+    <div class="doc__panel doc__panel--prose">
+      <div class="doc__caption" style="margin-bottom:6px">الحركة</div>
+      انتقالات الألوان والحدود <b class="doc__code">150ms</b><br>
+      دوران الشيفرون <b class="doc__code">200ms</b> · الضغط <b class="doc__code">scale(0.98)</b><br>
+      التمرير على البطاقات: تلوين الحد أو ظل md — <b>أحدهما لا كلاهما</b><br>
+      لا حركات دخول متدرجة، لا نبض، لا انزلاقات استعراضية
+    </div>
+    <div class="doc__panel doc__panel--prose">
+      <div class="doc__caption" style="margin-bottom:6px">الاتجاه واللغة</div>
+      الصفحة <b class="doc__code">dir="rtl"</b> · الكود والبريد <b class="doc__code">dir="ltr"</b><br>
+      الأرقام والرموز داخل <b class="doc__code">&lt;bdi&gt;</b><br>
+      المصطلح التقني: عربي أولًا والإنجليزية بين قوسين<br>
+      أهداف اللمس ≥ <b>٤٤px</b> في كل العناصر التفاعلية
+    </div>
+  </div>
+</section>
+
+<!-- 9 · Voice -->
+<section class="doc__panel" style="padding:24px;gap:10px">
+  <h2 class="doc__h2" style="font-size:22px">٩ · الصوت والمبادئ</h2>
+  <div style="font-size:14px;color:var(--cs-text-muted);line-height:2.1">النبرة مؤسسية هندسية رصينة: «تأصيل»، «منهجية»، «شفافية مالية»، «بدون فوائد خفية» — لا مبالغات تسويقية ولا وعود وظيفية. الجُمل تخاطب المتعلم مباشرة بصيغة المفرد. البيانات الرقمية (مدد، أعداد المسائل، الأسعار) تُعرض دائمًا بالمونو لتأكيد الدقة. كل ادّعاء يُسنَد برقم أو شرط واضح (ضمان ١٤ يومًا، ٦–٨ ساعات أسبوعيًا).</div>
+  <div class="doc__rule" style="font-size:13px;color:var(--cs-text-muted);line-height:2;padding-top:10px">التطبيق على الصفحات القادمة: كل صفحة تبدأ ببطل على شبكة المخطّط مع شارات وصفية، وتتناوب أقسامها بين الأبيض والورقي/الشبكة، وتُختم بشريط المبدأ المؤسسي ثم التذييل. الصور الحقيقية تُستبدل بأُطر داكنة (نوافذ كود أو فيديو) لا برسومات مجرّدة. <a href="example.html">مثال على صفحة مركّبة ←</a></div>
+</section>
+
+</div>
+</div>
+<script src="cs.js"></script>
+</body>
+</html>
