@@ -69,10 +69,10 @@ This repo holds that system, named **«المخطّط الهندسي» (Blueprin
 | 1 | 2026-09-13 | Claude Design chat ("CSkilled design system") | Generated the spec from the home page using Alhamd as the reference. Orange (terracotta/amber) was removed and remapped to cobalt, and code keywords became indigo `#A5B4FC`. A sky-blue accent (`#0EA5E9`/`#0369A1`) was then added in chat. | Done (sky blue was not exported, see Decisions) |
 | 2 | 2026-09-30 | Commit `2147e97` on `main` (author: Claude Design) | Imported the handoff bundle: spec HTML, chat, runtime, reference upload | Done |
 | 3 | 2026-09-30 | Commit `c404707` on `main` (Claude Code session `session_01XtEEHpSmk2tbfLKoXq6tXQ`) | Built the CSS kit: `tokens.css`, `components.css`, `cs.js`, `index.html`, `example.html`, logo files, README. Moved the handoff to `source/`. | Done (committed directly to `main`, no PR) |
-| 4 | 2026-11-27 | Branch `claude/trusting-maxwell-zawedz` (this session, "Project overview and onboarding") | Wrote this overview. Read-only otherwise. | In progress → done once pushed |
+| 4 | 2026-11-27 | Branch `claude/trusting-maxwell-zawedz` (this session, "Project overview and onboarding") | Wrote this overview (PR [#1](https://github.com/adel3li/cskilled-design-system/pull/1), draft). Read-only otherwise. | Done, awaiting merge |
 
 **Branches:** `main` (the only remote branch before this session) and `claude/trusting-maxwell-zawedz` (this overview).
-**Pull requests:** none, open or closed, as of 2026-11-27.
+**Pull requests:** [#1](https://github.com/adel3li/cskilled-design-system/pull/1) (this overview, draft) is the only one. Earlier work was committed straight to `main`.
 
 ## 5. Decisions and why
 
